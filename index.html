@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#FAF6EE" />
+
+  <!-- ============================================
+       SEO
+       Editá título y meta description si querés ajustarlos.
+       ============================================ -->
+  <title>Cultura Cortesana | Feria de Vinos — 8 años de Los Cortesanos en Rafaela</title>
+  <meta name="description" content="Cultura Cortesana celebra los 8 años de Los Cortesanos en Rafaela con una feria de vinos al aire libre, más de 150 etiquetas, gastronomía incluida, música y bodegas reconocidas en Finca Los Teros, Bella Italia." />
+  <meta name="keywords" content="feria de vinos, Rafaela, Los Cortesanos, Cultura Cortesana, Bella Italia, Finca Los Teros, vinos, bodegas, gastronomía, evento, 2026" />
+  <meta name="author" content="Los Cortesanos Experience" />
+  <link rel="canonical" href="https://culturacortesana.com.ar/" />
+
+  <!-- ============================================
+       OPEN GRAPH / REDES
+       Reemplazá la URL de og:image cuando tengas la imagen final (1200x630px).
+       ============================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:title" content="Cultura Cortesana | Feria de Vinos — 8 años de Los Cortesanos" />
+  <meta property="og:description" content="Sábado 13 de junio de 2026 — Finca Los Teros, Bella Italia. Más de 150 etiquetas, gastronomía incluida, música y aire libre." />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://culturacortesana.com.ar/" />
+  <meta property="og:site_name" content="Los Cortesanos Experience" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cultura Cortesana | Feria de Vinos" />
+  <meta name="twitter:description" content="8 años de Los Cortesanos en Rafaela. Sábado 13 de junio de 2026. Finca Los Teros, Bella Italia." />
+  <meta name="twitter:image" content="assets/og-image.jpg" />
+
+  <!-- Favicon (reemplazá por el real cuando lo tengas) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Tipografías: Cormorant Garamond (display serif) + Manrope (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ============================================
+       SCHEMA.ORG — datos estructurados del evento
+       Mejoran cómo aparece en Google y al compartir.
+       ============================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Cultura Cortesana — Feria de Vinos",
+    "description": "Feria de vinos al aire libre celebrando los 8 años de Los Cortesanos en Rafaela. Más de 150 etiquetas, gastronomía incluida, música y aire libre.",
+    "startDate": "2026-06-13T12:00:00-03:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Finca Los Teros",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bella Italia",
+        "addressRegion": "Santa Fe",
+        "addressCountry": "AR"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Los Cortesanos Experience"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Entrada General",
+        "price": "85000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/LimitedAvailability"
+      },
+      {
+        "@type": "Offer",
+        "name": "Entrada VIP",
+        "price": "135000",
+        "priceCurrency": "ARS",
+        "availability": "https://schema.org/LimitedAvailability"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       HEADER / NAVEGACIÓN
+       ============================================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#hero" class="brand" aria-label="Los Cortesanos Experience — inicio">
+        <span class="brand-mark">L<span class="brand-dot">·</span>C</span>
+        <span class="brand-text">
+          <span class="brand-line-1">Los Cortesanos</span>
+          <span class="brand-line-2">Experience</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul class="nav-list" id="navList">
+          <li><a href="#evento">El evento</a></li>
+          <li><a href="#bodegas">Bodegas</a></li>
+          <li><a href="#entradas">Entradas</a></li>
+          <li><a href="#gastronomia">Gastronomía</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <a href="#entradas" class="btn btn-primary btn-sm nav-cta">Reservar</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-image"></div>
+        <div class="hero-bg-overlay"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <p class="hero-eyebrow">
+          <span class="line"></span>
+          8 años en Rafaela
+          <span class="line"></span>
+        </p>
+
+        <h1 class="hero-title">
+          <span class="hero-title-top">Cultura</span>
+          <span class="hero-title-bottom"><em>Cortesana</em></span>
+        </h1>
+
+        <p class="hero-subtitle">Feria de Vinos · Edición Aniversario</p>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="meta-label">Fecha</span>
+            <span class="meta-value">Sábado 13 de junio</span>
+            <span class="meta-sub">2026 · al mediodía</span>
+          </div>
+          <div class="hero-meta-divider" aria-hidden="true"></div>
+          <div class="hero-meta-item">
+            <span class="meta-label">Lugar</span>
+            <span class="meta-value">Finca Los Teros</span>
+            <span class="meta-sub">Bella Italia</span>
+          </div>
+          <div class="hero-meta-divider" aria-hidden="true"></div>
+          <div class="hero-meta-item">
+            <span class="meta-label">Experiencia</span>
+            <span class="meta-value">+150 etiquetas</span>
+            <span class="meta-sub">gastronomía incluida</span>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#entradas" class="btn btn-primary">Reservar mi entrada</a>
+          <a href="#evento" class="btn btn-ghost">Conocer la experiencia</a>
+        </div>
+
+        <p class="hero-tagline">vino · gastronomía · música · aire libre</p>
+      </div>
+
+      <a href="#evento" class="hero-scroll" aria-label="Ver más">
+        <span>Descubrir</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M12 4v16M6 14l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ============================================
+         EL EVENTO
+         ============================================ -->
+    <section class="section section-evento" id="evento">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">El evento</p>
+          <h2 class="section-title">Una jornada para los que <em>celebran el vino</em></h2>
+        </header>
+
+        <div class="evento-grid">
+          <div class="evento-text">
+            <p class="lead">
+              Cultura Cortesana es una experiencia pensada para los amantes del vino, la gastronomía y los encuentros al aire libre.
+            </p>
+            <p>
+              En esta edición especial celebramos los <strong>8 años de Los Cortesanos en Rafaela</strong> con una propuesta que reúne bodegas reconocidas, más de 150 etiquetas distintas para degustar y una experiencia gastronómica completa en un entorno natural.
+            </p>
+            <p>
+              El evento se desarrolla en formato feria: cada persona recorre libremente los distintos espacios con copa en mano, descubriendo etiquetas de alta gama, disfrutando de cocina en vivo y compartiendo una jornada diferente al aire libre.
+            </p>
+          </div>
+
+          <ul class="evento-highlights">
+            <li>
+              <span class="hl-number">150+</span>
+              <span class="hl-label">Etiquetas para degustar</span>
+            </li>
+            <li>
+              <span class="hl-number">14</span>
+              <span class="hl-label">Bodegas reconocidas</span>
+            </li>
+            <li>
+              <span class="hl-number">8</span>
+              <span class="hl-label">Años celebrando juntos</span>
+            </li>
+            <li>
+              <span class="hl-number">1</span>
+              <span class="hl-label">Jornada para no olvidar</span>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="evento-categories" aria-label="Categorías de vinos">
+          <li>Tintos</li>
+          <li>Blancos</li>
+          <li>Rosados</li>
+          <li>Dulces</li>
+          <li>Espumantes</li>
+          <li>Italianos</li>
+          <li>Proseccos</li>
+          <li>Premium</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         BODEGAS
+         ============================================ -->
+    <section class="section section-bodegas" id="bodegas">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Bodegas participantes</p>
+          <h2 class="section-title">Catorce nombres, <em>una sola mesa</em></h2>
+          <p class="section-sub">
+            Bodegas nacionales e internacionales seleccionadas para ofrecer un recorrido enológico de excepción.
+          </p>
+        </header>
+
+        <ul class="bodegas-grid">
+          <li class="bodega-card"><span>Bottega</span></li>
+          <li class="bodega-card"><span>Il Palazzo</span></li>
+          <li class="bodega-card"><span>Lagarde</span></li>
+          <li class="bodega-card"><span>Antigal</span></li>
+          <li class="bodega-card"><span>Susana Balbo</span></li>
+          <li class="bodega-card"><span>El Porvenir</span></li>
+          <li class="bodega-card"><span>Casarena</span></li>
+          <li class="bodega-card"><span>Cuvelier Los Andes</span></li>
+          <li class="bodega-card"><span>Clos de Los Siete</span></li>
+          <li class="bodega-card"><span>Renacer</span></li>
+          <li class="bodega-card"><span>Colomé</span></li>
+          <li class="bodega-card"><span>Amalaya</span></li>
+          <li class="bodega-card"><span>Bodega Rolland</span></li>
+          <li class="bodega-card"><span>DiamAndes</span></li>
+        </ul>
+
+        <p class="bodegas-note">
+          <!-- NOTA: cuando tengas los logos oficiales, reemplazá el span de cada .bodega-card por <img src="assets/bodegas/nombre.png" alt="Bodega Nombre">. El CSS ya está preparado para mostrarlos elegantes. -->
+          Más de 150 etiquetas distintas para descubrir en una sola jornada.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         ENTRADAS
+         ============================================ -->
+    <section class="section section-entradas" id="entradas">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Entradas</p>
+          <h2 class="section-title">Elegí <em>cómo querés vivirla</em></h2>
+          <p class="section-sub">
+            Primera tanda con cupos limitados. Asegurá tu lugar antes de que se agote.
+          </p>
+        </header>
+
+        <div class="tickets-grid">
+
+          <!-- ENTRADA GENERAL -->
+          <article class="ticket ticket-general">
+            <header class="ticket-head">
+              <p class="ticket-kicker">Entrada General</p>
+              <p class="ticket-stock">Primera tanda · 50 entradas</p>
+            </header>
+
+            <div class="ticket-price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">85.000</span>
+            </div>
+
+            <ul class="ticket-features">
+              <li>Ingreso al evento</li>
+              <li>Degustación de 150 etiquetas distintas</li>
+              <li>Copón de regalo</li>
+              <li>Gastronomía incluida</li>
+              <li><strong>Voucher de $25.000</strong> para compras en Los Cortesanos</li>
+            </ul>
+
+            <a href="#cta-final" class="btn btn-outline btn-block">Reservar General</a>
+          </article>
+
+          <!-- ENTRADA VIP -->
+          <article class="ticket ticket-vip">
+            <span class="ticket-badge">Más solicitada</span>
+            <header class="ticket-head">
+              <p class="ticket-kicker">Entrada VIP</p>
+              <p class="ticket-stock">Primera tanda · 20 entradas</p>
+            </header>
+
+            <div class="ticket-price">
+              <span class="price-currency">$</span>
+              <span class="price-amount">135.000</span>
+            </div>
+
+            <ul class="ticket-features">
+              <li>Ingreso al evento</li>
+              <li>Degustación de 150 etiquetas distintas</li>
+              <li><strong>Sector living VIP</strong></li>
+              <li><strong>Degustación de etiquetas premium</strong></li>
+              <li>Copón de regalo</li>
+              <li>Gastronomía incluida</li>
+              <li><strong>Voucher de $65.000</strong> para compras en Los Cortesanos</li>
+            </ul>
+
+            <a href="#cta-final" class="btn btn-primary btn-block">Reservar VIP</a>
+          </article>
+
+        </div>
+
+        <!-- COMPARATIVA RÁPIDA -->
+        <div class="compare">
+          <h3 class="compare-title">Comparativa rápida</h3>
+          <div class="compare-table" role="table" aria-label="Comparación entre Entrada General y Entrada VIP">
+            <div class="compare-row compare-row-head" role="row">
+              <div role="columnheader">Beneficio</div>
+              <div role="columnheader">General</div>
+              <div role="columnheader">VIP</div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Ingreso al evento</div>
+              <div role="cell" data-label="General"><span class="check">✓</span></div>
+              <div role="cell" data-label="VIP"><span class="check">✓</span></div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Degustación 150 etiquetas</div>
+              <div role="cell" data-label="General"><span class="check">✓</span></div>
+              <div role="cell" data-label="VIP"><span class="check">✓</span></div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Gastronomía incluida</div>
+              <div role="cell" data-label="General"><span class="check">✓</span></div>
+              <div role="cell" data-label="VIP"><span class="check">✓</span></div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Copón de regalo</div>
+              <div role="cell" data-label="General"><span class="check">✓</span></div>
+              <div role="cell" data-label="VIP"><span class="check">✓</span></div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Sector living VIP</div>
+              <div role="cell" data-label="General"><span class="dash">—</span></div>
+              <div role="cell" data-label="VIP"><span class="check">✓</span></div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Etiquetas premium</div>
+              <div role="cell" data-label="General"><span class="dash">—</span></div>
+              <div role="cell" data-label="VIP"><span class="check">✓</span></div>
+            </div>
+            <div class="compare-row" role="row">
+              <div role="cell" data-label="Beneficio">Voucher Los Cortesanos</div>
+              <div role="cell" data-label="General">$25.000</div>
+              <div role="cell" data-label="VIP">$65.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         GASTRONOMÍA
+         ============================================ -->
+    <section class="section section-gastronomia" id="gastronomia">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Gastronomía incluida</p>
+          <h2 class="section-title">Cocina en vivo, <em>fuegos de campo</em></h2>
+          <p class="section-sub">
+            Una propuesta gastronómica artesanal pensada para acompañar cada copa, incluida en todas las entradas.
+          </p>
+        </header>
+
+        <div class="menu">
+          <div class="menu-section">
+            <p class="menu-section-title">Recepción</p>
+            <ul class="menu-list">
+              <li>
+                <h4>Dúo de brusquetas artesanales</h4>
+                <p>Brusqueta mediterránea con tomates confitados, albahaca fresca y olivas.</p>
+                <p>Brusqueta con queso Brie y jamón crudo premium.</p>
+              </li>
+              <li>
+                <h4>Empanada criolla</h4>
+                <p>De carne cortada a cuchillo.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-section menu-section-fuegos">
+            <p class="menu-section-title">
+              <span class="fire" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2c1 3-1 4-1 7s2 4 4 4c0-2-1-3-1-5 2 1 4 3 4 7a6 6 0 11-12 0c0-3 2-5 4-7-1-2 1-4 2-6z"/></svg>
+              </span>
+              Show de fuegos en vivo
+            </p>
+            <ul class="menu-list">
+              <li>
+                <h4>Sándwich de vacío a la llama</h4>
+                <p>Con alioli casero.</p>
+              </li>
+              <li>
+                <h4>Sándwich de bondiola al fuego</h4>
+                <p>Con pickles artesanales.</p>
+              </li>
+              <li>
+                <h4>Variedad de aderezos caseros</h4>
+                <p>Para acompañar y combinar a gusto.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-section">
+            <p class="menu-section-title">Cierre</p>
+            <ul class="menu-list">
+              <li>
+                <h4>Copita postre degustación</h4>
+                <p>El brindis final de la jornada.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="menu-foot">
+          Productos artesanales · Cocina en vivo · Fuegos de campo
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         EXPERIENCIA
+         ============================================ -->
+    <section class="section section-experiencia" id="experiencia">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">La experiencia</p>
+          <h2 class="section-title">Todo en un mismo lugar, <em>a cielo abierto</em></h2>
+        </header>
+
+        <ul class="exp-grid">
+          <li class="exp-card">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 8a3 3 0 01-6 0L8 3z"/><path d="M12 14v6"/><path d="M9 21h6"/></svg>
+            </div>
+            <h3>Recorrido con copa en mano</h3>
+            <p>Más de 150 etiquetas: tintos, blancos, rosados, dulces, espumantes, italianos, proseccos y premium.</p>
+          </li>
+          <li class="exp-card">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 18V5l12-2v13"/></svg>
+            </div>
+            <h3>Música ambiente</h3>
+            <p>El sonido perfecto para acompañar las degustaciones y la sobremesa.</p>
+          </li>
+          <li class="exp-card">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3-1 4-1 7s2 4 4 4c0-2-1-3-1-5 2 1 4 3 4 7a6 6 0 11-12 0c0-3 2-5 4-7-1-2 1-4 2-6z"/></svg>
+            </div>
+            <h3>Fuegos en vivo</h3>
+            <p>Asado a la llama, bondiola al fuego y el ritual de la cocina al aire libre.</p>
+          </li>
+          <li class="exp-card">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18M5 18V8a2 2 0 012-2h10a2 2 0 012 2v10"/><path d="M9 18v-4M15 18v-4"/></svg>
+            </div>
+            <h3>Sectores de descanso</h3>
+            <p>Espacios pensados para sentarse, conversar y disfrutar sin apuro.</p>
+          </li>
+          <li class="exp-card">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c4-6 14-6 18 0-4 6-14 6-18 0z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Entorno natural</h3>
+            <p>La finca al mediodía, el sol, los viñedos y el aire libre como escenario.</p>
+          </li>
+          <li class="exp-card">
+            <div class="exp-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <h3>Aniversario</h3>
+            <p>Ocho años de Los Cortesanos en Rafaela. Una edición especial para celebrar.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         UBICACIÓN
+         ============================================ -->
+    <section class="section section-ubicacion" id="ubicacion">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Ubicación</p>
+          <h2 class="section-title">Finca Los Teros, <em>Bella Italia</em></h2>
+          <p class="section-sub">
+            Un entorno natural a pocos minutos de Rafaela. El escenario perfecto para una jornada al aire libre.
+          </p>
+        </header>
+
+        <div class="ubicacion-grid">
+          <div class="map-wrapper">
+            <!-- Mapa: actualmente apunta a la búsqueda genérica "Bella Italia, Santa Fe".
+                 Cuando tengas las coordenadas exactas de Finca Los Teros,
+                 reemplazá el atributo src por el iframe que Google Maps te da en "Compartir > Insertar mapa". -->
+            <iframe
+              src="https://www.google.com/maps?q=Bella+Italia,+Santa+Fe,+Argentina&output=embed"
+              title="Mapa de Finca Los Teros, Bella Italia"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="ubicacion-info">
+            <p class="ubicacion-label">Dirección</p>
+            <p class="ubicacion-place">Finca Los Teros</p>
+            <p class="ubicacion-town">Bella Italia · Santa Fe</p>
+
+            <p class="ubicacion-when">
+              <span class="when-label">Sábado</span>
+              <span class="when-date">13 de junio de 2026</span>
+              <span class="when-time">al mediodía</span>
+            </p>
+
+            <a class="btn btn-outline" href="https://www.google.com/maps?q=Bella+Italia,+Santa+Fe,+Argentina" target="_blank" rel="noopener">Cómo llegar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FAQ
+         ============================================ -->
+    <section class="section section-faq" id="faq">
+      <div class="container container-narrow">
+        <header class="section-head">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2 class="section-title">Todo lo que <em>necesitás saber</em></h2>
+        </header>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>¿Qué incluye la Entrada General?</summary>
+            <div class="faq-content">
+              <p>Ingreso al evento, degustación de 150 etiquetas distintas, copón de regalo, gastronomía incluida y un voucher de $25.000 para compras en Los Cortesanos.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Qué incluye la Entrada VIP?</summary>
+            <div class="faq-content">
+              <p>Ingreso al evento, degustación de 150 etiquetas, acceso al sector living VIP, degustación de etiquetas premium, copón de regalo, gastronomía incluida y un voucher de $65.000 para compras en Los Cortesanos.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Cuál es la diferencia entre General y VIP?</summary>
+            <div class="faq-content">
+              <p>La entrada VIP suma tres beneficios exclusivos: sector living VIP, degustación de etiquetas premium y un voucher de mayor valor ($65.000 vs $25.000). El resto de la experiencia base es la misma.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Cuántas etiquetas se podrán degustar?</summary>
+            <div class="faq-content">
+              <p>Más de 150 etiquetas distintas, entre vinos tintos, blancos, rosados, dulces, espumantes, italianos, proseccos y etiquetas premium.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿La gastronomía está incluida?</summary>
+            <div class="faq-content">
+              <p>Sí, la gastronomía está incluida en todas las entradas. El menú combina recepción con brusquetas artesanales, empanada criolla, show de fuegos en vivo con sándwiches de vacío y bondiola, aderezos caseros y copita postre de degustación.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Cuándo y a qué hora es?</summary>
+            <div class="faq-content">
+              <p>El sábado 13 de junio de 2026, al mediodía.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Dónde se realiza?</summary>
+            <div class="faq-content">
+              <p>En Finca Los Teros, Bella Italia. Un entorno natural pensado para una jornada al aire libre.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Hay cupos limitados?</summary>
+            <div class="faq-content">
+              <p>Sí. La primera tanda está limitada a 50 entradas Generales y 20 entradas VIP. Recomendamos reservar con anticipación.</p>
+            </div>
+          </details>
+
+          <!-- NOTA: Si más adelante definís políticas sobre menores de edad, lluvia, estacionamiento o medios de pago, sumalas como nuevos <details> con la misma estructura. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CTA FINAL
+         ============================================ -->
+    <section class="section section-cta" id="cta-final">
+      <div class="container container-narrow">
+        <div class="cta-box">
+          <p class="eyebrow eyebrow-light">Reservá tu lugar</p>
+          <h2 class="cta-title">Celebremos juntos <em>lo que nos une.</em></h2>
+          <p class="cta-text">
+            Cultura Cortesana busca consolidarse como una de las experiencias vínicas más importantes de la región. Vinos de alta gama, gastronomía de calidad y un formato relajado al aire libre, pensado tanto para quienes recién descubren el vino como para los más apasionados.
+          </p>
+          <p class="cta-text cta-text-small">
+            Cupos limitados en primera tanda · 50 Generales · 20 VIP
+          </p>
+
+          <div class="cta-buttons">
+            <!-- WHATSAPP: cambiá el número en script.js (variable WHATSAPP_NUMBER) -->
+            <a href="#" class="btn btn-primary btn-lg" id="ctaWhatsapp">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.5 11.5 0 003.4 19l-1.4 5 5.1-1.3a11.5 11.5 0 0017.3-9.8 11.4 11.4 0 00-3.9-9.4zM12 21.3a9.3 9.3 0 01-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.3 9.3 0 1117.4-4.7A9.3 9.3 0 0112 21.3zm5.3-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-1 1.3c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.5-.3z"/></svg>
+              Comprar por WhatsApp
+            </a>
+            <a href="#entradas" class="btn btn-outline btn-lg">Ver entradas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">L<span class="brand-dot">·</span>C</span>
+        <p class="footer-name">Los Cortesanos Experience</p>
+        <p class="footer-tag">vino · gastronomía · música · aire libre</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="#evento">El evento</a>
+        <a href="#bodegas">Bodegas</a>
+        <a href="#entradas">Entradas</a>
+        <a href="#gastronomia">Gastronomía</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="footer-event">
+        <p>Cultura Cortesana</p>
+        <p>Sábado 13 de junio de 2026 · al mediodía</p>
+        <p>Finca Los Teros · Bella Italia</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Los Cortesanos Experience · Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       BOTÓN FLOTANTE DE WHATSAPP
+       ============================================ -->
+  <a href="#" class="wa-float" id="waFloat" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+      <path d="M20.5 3.5A11.5 11.5 0 003.4 19l-1.4 5 5.1-1.3a11.5 11.5 0 0017.3-9.8 11.4 11.4 0 00-3.9-9.4zM12 21.3a9.3 9.3 0 01-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.3 9.3 0 1117.4-4.7A9.3 9.3 0 0112 21.3zm5.3-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-1 1.3c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.5-.3z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
