@@ -8,10 +8,18 @@
    Ejemplo argentino: 549 (código de país y celulares) + código de área sin 0 + número sin 15.
    549 3492 + número de Rafaela típicamente: "5493492XXXXXX".
    REEMPLAZÁ por el número real cuando lo tengas. */
-const WHATSAPP_NUMBER = '5493492000000';
+const WHATSAPP_NUMBER = '5493492717777';
 
-/* Mensaje predeterminado para WhatsApp (se carga automáticamente en el chat). */
-const WHATSAPP_MESSAGE = '¡Hola! Quiero reservar mi entrada para Cultura Cortesana — Feria de Vinos del sábado 13 de junio. ¿Me podrían dar más información?';
+/* Alias para transferencias (se muestra en la página y se usa en los mensajes de WhatsApp). */
+const ALIAS = 'loscortesanosmacro';
+
+/* Mensajes predeterminados de WhatsApp.
+   Se arman distintos según desde dónde haga clic el cliente. */
+const WHATSAPP_MESSAGES = {
+  default: `¡Hola! Quiero reservar mi entrada para Cultura Cortesana — Feria de Vinos del sábado 13 de junio de 2026. ¿Me confirman disponibilidad y los datos de pago? (Alias: ${ALIAS})`,
+  general: `¡Hola! Me interesa la Entrada GENERAL para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`,
+  vip:     `¡Hola! Me interesa la Entrada VIP para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`
+};
 
 /* ============================================================
    No es necesario editar nada debajo de esta línea
@@ -36,14 +44,51 @@ const WHATSAPP_MESSAGE = '¡Hola! Quiero reservar mi entrada para Cultura Cortes
     return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
   }
 
-  const waUrl = buildWaUrl(WHATSAPP_NUMBER, WHATSAPP_MESSAGE);
-  ['waFloat', 'ctaWhatsapp'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.href = waUrl;
-      el.target = '_blank';
-      el.rel = 'noopener noreferrer';
-    }
+  /* Cada link/botón con [data-wa] se transforma automáticamente en un link de WhatsApp.
+     El valor de data-wa elige el mensaje: "default" | "general" | "vip". */
+  $$('[data-wa]').forEach(el => {
+    const key = el.getAttribute('data-wa') || 'default';
+    const message = WHATSAPP_MESSAGES[key] || WHATSAPP_MESSAGES.default;
+    el.href = buildWaUrl(WHATSAPP_NUMBER, message);
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+  });
+
+
+  /* ---------- 3b. Copiar alias ---------- */
+  const aliasButtons = $$('[data-copy-alias]');
+  aliasButtons.forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const original = btn.dataset.originalLabel || btn.querySelector('.alias-copy-label')?.textContent || btn.textContent;
+      if (!btn.dataset.originalLabel) btn.dataset.originalLabel = original;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(ALIAS);
+        } else {
+          // Fallback para http o navegadores viejos
+          const tmp = document.createElement('textarea');
+          tmp.value = ALIAS;
+          tmp.style.position = 'fixed';
+          tmp.style.opacity = '0';
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          document.body.removeChild(tmp);
+        }
+        const labelEl = btn.querySelector('.alias-copy-label');
+        if (labelEl) labelEl.textContent = '¡Copiado!';
+        else btn.textContent = '¡Copiado!';
+        btn.classList.add('is-copied');
+        setTimeout(() => {
+          if (labelEl) labelEl.textContent = original;
+          else btn.textContent = original;
+          btn.classList.remove('is-copied');
+        }, 1800);
+      } catch (err) {
+        console.warn('No se pudo copiar el alias automáticamente.', err);
+      }
+    });
   });
 
 
@@ -123,6 +168,8 @@ const WHATSAPP_MESSAGE = '¡Hola! Quiero reservar mi entrada para Cultura Cortes
     '.compare',
     '.menu-section',
     '.exp-card',
+    '.gallery-item',
+    '.alias-card',
     '.ubicacion-grid',
     '.faq-item',
     '.cta-box'

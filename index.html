@@ -111,12 +111,13 @@
           <li><a href="#bodegas">Bodegas</a></li>
           <li><a href="#entradas">Entradas</a></li>
           <li><a href="#gastronomia">Gastronomía</a></li>
+          <li><a href="#galeria">Galería</a></li>
           <li><a href="#ubicacion">Ubicación</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
-      <a href="#entradas" class="btn btn-primary btn-sm nav-cta">Reservar</a>
+      <a href="#" class="btn btn-primary btn-sm nav-cta" data-wa="default">Reservar</a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">
         <span></span><span></span><span></span>
@@ -170,7 +171,7 @@
         </div>
 
         <div class="hero-cta">
-          <a href="#entradas" class="btn btn-primary">Reservar mi entrada</a>
+          <a href="#" class="btn btn-primary" data-wa="default">Reservar por WhatsApp</a>
           <a href="#evento" class="btn btn-ghost">Conocer la experiencia</a>
         </div>
 
@@ -313,7 +314,7 @@
               <li><strong>Voucher de $25.000</strong> para compras en Los Cortesanos</li>
             </ul>
 
-            <a href="#cta-final" class="btn btn-outline btn-block">Reservar General</a>
+            <a href="#" class="btn btn-outline btn-block" data-wa="general">Reservar General</a>
           </article>
 
           <!-- ENTRADA VIP -->
@@ -339,10 +340,37 @@
               <li><strong>Voucher de $65.000</strong> para compras en Los Cortesanos</li>
             </ul>
 
-            <a href="#cta-final" class="btn btn-primary btn-block">Reservar VIP</a>
+            <a href="#" class="btn btn-primary btn-block" data-wa="vip">Reservar VIP</a>
           </article>
 
         </div>
+
+        <!-- ALIAS DE PAGO -->
+        <aside class="alias-card" aria-label="Datos para transferir">
+          <div class="alias-card-inner">
+            <div class="alias-card-text">
+              <p class="alias-card-eyebrow">Reservá tu lugar por transferencia</p>
+              <h3 class="alias-card-title">Alias de pago</h3>
+              <p class="alias-card-sub">Hacé la transferencia y mandanos el comprobante por WhatsApp. Te confirmamos en el momento.</p>
+            </div>
+            <div class="alias-card-actions">
+              <button type="button" class="alias-chip" data-copy-alias aria-label="Copiar alias loscortesanosmacro">
+                <span class="alias-chip-label">
+                  <span class="alias-chip-tag">Alias</span>
+                  <span class="alias-copy-label">loscortesanosmacro</span>
+                </span>
+                <svg class="alias-copy-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="11" height="11" rx="2"/>
+                  <path d="M5 15V6a2 2 0 012-2h9"/>
+                </svg>
+              </button>
+              <a href="#" class="btn btn-outline" data-wa="default">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.5 11.5 0 003.4 19l-1.4 5 5.1-1.3a11.5 11.5 0 0017.3-9.8 11.4 11.4 0 00-3.9-9.4zM12 21.3a9.3 9.3 0 01-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.3 9.3 0 1117.4-4.7A9.3 9.3 0 0112 21.3zm5.3-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-1 1.3c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.5-.3z"/></svg>
+                Enviar comprobante
+              </a>
+            </div>
+          </div>
+        </aside>
 
         <!-- COMPARATIVA RÁPIDA -->
         <div class="compare">
@@ -520,6 +548,74 @@
     </section>
 
     <!-- ============================================
+         GALERÍA
+         Reemplazá cada <span class="gallery-placeholder">... por
+         <img src="assets/galeria/nombre.jpg" alt="..." loading="lazy">
+         y listo. Podés sumar o quitar <li class="gallery-item">…</li>
+         según cuántas fotos quieras mostrar.
+         ============================================ -->
+    <section class="section section-galeria" id="galeria">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">El lugar</p>
+          <h2 class="section-title">Una postal de <em>Finca Los Teros</em></h2>
+          <p class="section-sub">
+            El entorno donde vamos a celebrar la jornada. Viñedos, naturaleza y aire libre a pocos minutos de Rafaela.
+          </p>
+        </header>
+
+        <ul class="gallery-grid">
+          <li class="gallery-item gallery-item--lg">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+          <li class="gallery-item">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+          <li class="gallery-item">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+          <li class="gallery-item">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+          <li class="gallery-item">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+          <li class="gallery-item">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+          <li class="gallery-item gallery-item--wide">
+            <span class="gallery-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-8 8"/></svg>
+              <span>Foto del lugar</span>
+            </span>
+          </li>
+        </ul>
+
+        <p class="gallery-note">
+          <em>Próximamente:</em> fotos reales del lugar.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
          UBICACIÓN
          ============================================ -->
     <section class="section section-ubicacion" id="ubicacion">
@@ -538,7 +634,7 @@
                  Cuando tengas las coordenadas exactas de Finca Los Teros,
                  reemplazá el atributo src por el iframe que Google Maps te da en "Compartir > Insertar mapa". -->
             <iframe
-              src="https://www.google.com/maps?q=Bella+Italia,+Santa+Fe,+Argentina&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3410.1593237746106!2d-61.435156500000005!3d-31.271687900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95caaf004dbfb57d%3A0xb9afffacc210bbfd!2sVi%C3%B1edos%20los%20Teros!5e0!3m2!1ses!2sar!4v1779227990842!5m2!1ses!2sar"
               title="Mapa de Finca Los Teros, Bella Italia"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -651,11 +747,23 @@
 
           <div class="cta-buttons">
             <!-- WHATSAPP: cambiá el número en script.js (variable WHATSAPP_NUMBER) -->
-            <a href="#" class="btn btn-primary btn-lg" id="ctaWhatsapp">
+            <a href="#" class="btn btn-primary btn-lg" id="ctaWhatsapp" data-wa="default">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.5 11.5 0 003.4 19l-1.4 5 5.1-1.3a11.5 11.5 0 0017.3-9.8 11.4 11.4 0 00-3.9-9.4zM12 21.3a9.3 9.3 0 01-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.3 9.3 0 1117.4-4.7A9.3 9.3 0 0112 21.3zm5.3-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-1 1.3c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.5-.3z"/></svg>
               Comprar por WhatsApp
             </a>
             <a href="#entradas" class="btn btn-outline btn-lg">Ver entradas</a>
+          </div>
+
+          <!-- ALIAS DE PAGO -->
+          <div class="cta-alias">
+            <span class="cta-alias-label">Alias para transferir</span>
+            <button type="button" class="cta-alias-pill" data-copy-alias aria-label="Copiar alias loscortesanosmacro">
+              <span class="alias-copy-label">loscortesanosmacro</span>
+              <svg class="alias-copy-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="11" height="11" rx="2"/>
+                <path d="M5 15V6a2 2 0 012-2h9"/>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -678,6 +786,7 @@
         <a href="#bodegas">Bodegas</a>
         <a href="#entradas">Entradas</a>
         <a href="#gastronomia">Gastronomía</a>
+        <a href="#galeria">Galería</a>
         <a href="#ubicacion">Ubicación</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -697,7 +806,7 @@
   <!-- ============================================
        BOTÓN FLOTANTE DE WHATSAPP
        ============================================ -->
-  <a href="#" class="wa-float" id="waFloat" aria-label="Contactar por WhatsApp">
+  <a href="#" class="wa-float" id="waFloat" data-wa="default" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
       <path d="M20.5 3.5A11.5 11.5 0 003.4 19l-1.4 5 5.1-1.3a11.5 11.5 0 0017.3-9.8 11.4 11.4 0 00-3.9-9.4zM12 21.3a9.3 9.3 0 01-4.7-1.3l-.3-.2-3 .8.8-2.9-.2-.3a9.3 9.3 0 1117.4-4.7A9.3 9.3 0 0112 21.3zm5.3-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1l-1 1.3c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.4-.7-.4h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 1.7.7 2.4.8 3.3.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.3-.2-.5-.3z"/>
     </svg>

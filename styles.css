@@ -29,21 +29,32 @@
    1. VARIABLES
    ============================================================ */
 :root {
-  /* Paleta principal — vinoteca premium clara */
-  --cream:        #FAF6EE;   /* fondo principal */
-  --cream-soft:  #F4EDDF;   /* fondos alternos */
+  /* Paleta principal — vinoteca premium clara, ahora con más color */
+  --cream:        #FAF4E6;   /* fondo principal, un toque más cálido */
+  --cream-soft:   #F3E8D0;   /* fondos alternos, más amarillo */
   --beige:        #E8DDC8;   /* bordes y divisores */
-  --champagne:   #D9C49A;   /* dorado suave */
-  --gold:         #B89456;   /* dorado para acentos */
+  --champagne:    #E4C684;   /* dorado suave más vibrante */
+  --gold:         #C79A4A;   /* dorado para acentos */
+  --gold-bright:  #E0AE48;   /* dorado luminoso para hovers */
   --gold-deep:    #8B6B2E;
-  --wine:         #5C1A2B;   /* bordó principal */
-  --wine-deep:    #401120;
+  --wine:         #7A1F33;   /* bordó principal — un punto más vivo */
+  --wine-bright:  #A02944;   /* vino rojo más rojo, para highlights */
+  --wine-deep:    #4A0F1C;
+  --terracotta:   #C75B3C;   /* acento terracota cálido */
   --olive:        #6B6E3E;   /* verde oliva natural */
   --olive-soft:   #9A9B73;
+  --olive-deep:   #4F5128;
+  --plum:         #58264D;   /* ciruela para sombras de color */
   --ink:          #1F1B17;   /* texto principal */
   --ink-soft:     #4A4540;
   --muted:        #8A8278;   /* texto secundario */
-  --line:         #D9CFBC;   /* líneas finas */
+  --line:         #E0CFAE;   /* líneas finas más tibias */
+
+  /* Gradientes reutilizables */
+  --grad-warm:     linear-gradient(135deg, #FAF4E6 0%, #F4DFAE 60%, #E4C684 100%);
+  --grad-wine:     linear-gradient(135deg, #7A1F33 0%, #4A0F1C 100%);
+  --grad-sunset:   linear-gradient(135deg, #C79A4A 0%, #C75B3C 55%, #7A1F33 100%);
+  --grad-vine:     linear-gradient(160deg, #4F5128 0%, #6B6E3E 60%, #C79A4A 100%);
 
   /* Tipografía */
   --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
@@ -82,7 +93,11 @@ body {
   font-size: 17px;
   line-height: 1.65;
   color: var(--ink);
-  background: var(--cream);
+  background:
+    radial-gradient(ellipse 60% 40% at 0% 0%, rgba(199, 154, 74, 0.07), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 100% 100%, rgba(122, 31, 51, 0.05), transparent 60%),
+    var(--cream);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -132,8 +147,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 .section-title em {
   font-style: italic;
-  color: var(--wine);
-  font-weight: 400;
+  background: var(--grad-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+.section-head { position: relative; }
+.section-head::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 22px auto 0;
+  background: var(--grad-sunset);
+  border-radius: 2px;
 }
 .section-sub {
   max-width: 620px;
@@ -363,21 +392,44 @@ h1, h2, h3, h4, h5, h6 {
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg-image {
   position: absolute; inset: 0;
-  /* Fondo decorativo en gradientes que evoca una finca al mediodía.
+  /* Fondo decorativo con más color: dorado, terracota y un toque de vino.
      Reemplazá por una foto real así:
      background: url('assets/hero-evento.jpg') center/cover no-repeat;
      y dejá solo --bg-image-real abajo (descomentando la línea). */
   background:
-    radial-gradient(ellipse 80% 60% at 20% 30%, rgba(217, 196, 154, 0.45), transparent 60%),
-    radial-gradient(ellipse 70% 50% at 80% 70%, rgba(154, 155, 115, 0.35), transparent 60%),
-    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(232, 221, 200, 0.6), transparent 70%),
-    linear-gradient(180deg, #FBF8F2 0%, #F5EDDB 60%, #EFE4CB 100%);
+    radial-gradient(ellipse 70% 55% at 18% 25%, rgba(228, 198, 132, 0.75), transparent 65%),
+    radial-gradient(ellipse 65% 50% at 82% 75%, rgba(199, 91, 60, 0.32), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 70% 15%, rgba(122, 31, 51, 0.22), transparent 65%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(107, 110, 62, 0.28), transparent 70%),
+    linear-gradient(180deg, #FFF6E1 0%, #F4DDA8 55%, #E9C078 100%);
 }
 .hero-bg-overlay {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(250, 246, 238, 0.0) 0%, rgba(250, 246, 238, 0.4) 100%),
-    repeating-linear-gradient(45deg, transparent 0 4px, rgba(184, 148, 86, 0.012) 4px 5px);
+    radial-gradient(circle at 50% 0%, rgba(250, 244, 230, 0.0) 0%, rgba(250, 244, 230, 0.45) 100%),
+    repeating-linear-gradient(45deg, transparent 0 4px, rgba(122, 31, 51, 0.02) 4px 5px);
+}
+/* Pequeños "haces" de luz dorados decorativos a los costados del hero */
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero::before {
+  background: radial-gradient(circle, rgba(122, 31, 51, 0.32), transparent 70%);
+  top: -120px;
+  right: -120px;
+}
+.hero::after {
+  background: radial-gradient(circle, rgba(199, 154, 74, 0.45), transparent 70%);
+  bottom: -140px;
+  left: -120px;
 }
 
 .hero-inner {
@@ -420,12 +472,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero-title-bottom {
   display: block;
-  color: var(--wine);
   margin-top: -0.06em;
+  background: var(--grad-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 .hero-title-bottom em {
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .hero-subtitle {
@@ -520,15 +576,17 @@ h1, h2, h3, h4, h5, h6 {
    8. SECCIÓN EVENTO
    ============================================================ */
 .section-evento {
-  background: var(--cream);
+  background:
+    radial-gradient(ellipse 40% 30% at 100% 0%, rgba(199, 154, 74, 0.10), transparent 60%),
+    var(--cream);
   position: relative;
 }
 .section-evento::before {
   content: '';
   position: absolute;
   inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  height: 3px;
+  background: var(--grad-sunset);
 }
 
 .evento-grid {
@@ -546,22 +604,33 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--gold);
+  border: 1px solid var(--gold);
   border-radius: var(--radius-md);
   overflow: hidden;
+  box-shadow: 0 18px 40px rgba(122, 31, 51, 0.08);
 }
 .evento-highlights li {
-  background: var(--cream);
+  background: linear-gradient(160deg, #FFFCF4 0%, #F9EBC9 100%);
   padding: 32px 24px;
   text-align: center;
+  position: relative;
+  transition: transform var(--t-base);
 }
+.evento-highlights li:hover { transform: translateY(-3px); }
+.evento-highlights li:nth-child(2) { background: linear-gradient(160deg, #FFFCF4 0%, #F2D9BC 100%); }
+.evento-highlights li:nth-child(3) { background: linear-gradient(160deg, #FFFCF4 0%, #ECC9A8 100%); }
+.evento-highlights li:nth-child(4) { background: linear-gradient(160deg, #FFFCF4 0%, #E8C6A2 100%); }
 .hl-number {
   display: block;
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.5vw, 3.4rem);
-  font-weight: 400;
-  color: var(--wine);
+  font-weight: 500;
+  background: var(--grad-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -584,7 +653,7 @@ h1, h2, h3, h4, h5, h6 {
 .evento-categories li {
   font-family: var(--font-body);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink-soft);
@@ -592,32 +661,63 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--line);
   border-radius: 100px;
   transition: all var(--t-base);
+  position: relative;
+  background: var(--cream);
 }
 .evento-categories li:hover {
-  background: var(--wine);
   color: var(--cream);
-  border-color: var(--wine);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 15, 28, 0.18);
 }
+/* Cada categoría con su color — más festivo */
+.evento-categories li:nth-child(1) { color: var(--wine); border-color: rgba(122, 31, 51, 0.3); }
+.evento-categories li:nth-child(1):hover { background: var(--wine); border-color: var(--wine); }
+.evento-categories li:nth-child(2) { color: var(--olive-deep); border-color: rgba(79, 81, 40, 0.3); }
+.evento-categories li:nth-child(2):hover { background: var(--olive); border-color: var(--olive); }
+.evento-categories li:nth-child(3) { color: var(--terracotta); border-color: rgba(199, 91, 60, 0.35); }
+.evento-categories li:nth-child(3):hover { background: var(--terracotta); border-color: var(--terracotta); }
+.evento-categories li:nth-child(4) { color: var(--gold-deep); border-color: rgba(199, 154, 74, 0.4); }
+.evento-categories li:nth-child(4):hover { background: var(--gold); border-color: var(--gold); }
+.evento-categories li:nth-child(5) { color: var(--plum); border-color: rgba(88, 38, 77, 0.3); }
+.evento-categories li:nth-child(5):hover { background: var(--plum); border-color: var(--plum); }
+.evento-categories li:nth-child(6) { color: var(--wine-bright); border-color: rgba(160, 41, 68, 0.3); }
+.evento-categories li:nth-child(6):hover { background: var(--wine-bright); border-color: var(--wine-bright); }
+.evento-categories li:nth-child(7) { color: var(--olive); border-color: rgba(107, 110, 62, 0.3); }
+.evento-categories li:nth-child(7):hover { background: var(--olive); border-color: var(--olive); }
+.evento-categories li:nth-child(8) { color: var(--gold-deep); border-color: rgba(199, 154, 74, 0.4); }
+.evento-categories li:nth-child(8):hover { background: var(--grad-sunset); border-color: transparent; }
 
 
 /* ============================================================
    9. SECCIÓN BODEGAS
    ============================================================ */
 .section-bodegas {
-  background: var(--cream-soft);
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(122, 31, 51, 0.06), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(199, 154, 74, 0.12), transparent 60%),
+    var(--cream-soft);
+  position: relative;
+}
+.section-bodegas::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad-sunset);
 }
 
 .bodegas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  background: var(--gold);
+  border: 1px solid var(--gold);
   border-radius: var(--radius-md);
   overflow: hidden;
+  box-shadow: 0 24px 60px rgba(74, 15, 28, 0.1);
 }
 .bodega-card {
-  background: var(--cream);
+  background: linear-gradient(180deg, #FFFCF4 0%, #F8EDCF 100%);
   min-height: 130px;
   display: flex;
   align-items: center;
@@ -626,7 +726,18 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   transition: background var(--t-base), transform var(--t-base);
   position: relative;
+  overflow: hidden;
 }
+.bodega-card::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: var(--grad-sunset);
+  transform: translateY(100%);
+  transition: transform var(--t-base);
+}
+.bodega-card:hover::before { transform: translateY(0); }
 .bodega-card span {
   font-family: var(--font-display);
   font-size: 1.35rem;
@@ -648,11 +759,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: width var(--t-base);
 }
 .bodega-card:hover {
-  background: var(--cream);
-  transform: translateY(-2px);
+  background: linear-gradient(180deg, #FFFDF6 0%, #FAE2B7 100%);
+  transform: translateY(-3px);
 }
 .bodega-card:hover span { color: var(--wine); }
-.bodega-card:hover span::after { width: 30px; }
+.bodega-card:hover span::after { width: 40px; }
 
 /* Si reemplazás el <span> por <img> para logos reales, este selector los estiliza */
 .bodega-card img {
@@ -690,25 +801,44 @@ h1, h2, h3, h4, h5, h6 {
 
 .ticket {
   position: relative;
-  background: var(--cream);
-  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #FFFCF4 0%, #FAEFD2 100%);
+  border: 1px solid var(--champagne);
   border-radius: var(--radius-lg);
   padding: 48px 40px;
   display: flex;
   flex-direction: column;
   transition: transform var(--t-base), box-shadow var(--t-base);
+  overflow: hidden;
+}
+.ticket::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad-sunset);
 }
 .ticket:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(122, 31, 51, 0.18);
 }
 
 .ticket-vip {
-  background: linear-gradient(180deg, #2a0e15 0%, #5C1A2B 100%);
+  background: linear-gradient(155deg, #2a0e15 0%, #58264D 45%, #7A1F33 100%);
   border-color: var(--wine);
   color: var(--cream);
 }
-.ticket-vip:hover { box-shadow: 0 24px 60px rgba(64, 17, 32, 0.4); }
+.ticket-vip::before { background: linear-gradient(90deg, var(--gold-bright), var(--champagne), var(--gold)); }
+.ticket-vip::after {
+  content: '';
+  position: absolute;
+  inset: -20% -20% auto auto;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(228, 198, 132, 0.18), transparent 70%);
+  pointer-events: none;
+}
+.ticket-vip:hover { box-shadow: 0 24px 60px rgba(64, 17, 32, 0.5); }
+.ticket-vip > * { position: relative; z-index: 1; }
 
 .ticket-badge {
   position: absolute;
@@ -855,7 +985,19 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================================
    11. SECCIÓN GASTRONOMÍA
    ============================================================ */
-.section-gastronomia { background: var(--cream-soft); }
+.section-gastronomia {
+  background:
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(199, 91, 60, 0.08), transparent 60%),
+    var(--cream-soft);
+  position: relative;
+}
+.section-gastronomia::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--olive), var(--gold), var(--terracotta));
+}
 
 .menu {
   display: grid;
@@ -864,15 +1006,36 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 48px;
 }
 .menu-section {
-  background: var(--cream);
-  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #FFFCF4 0%, #FAEFD2 100%);
+  border: 1px solid var(--champagne);
   border-radius: var(--radius-lg);
   padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--t-base), box-shadow var(--t-base);
 }
+.menu-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(122, 31, 51, 0.12);
+}
+.menu-section::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--olive);
+}
+.menu-section:nth-child(3)::before { background: var(--terracotta); }
 .menu-section-fuegos {
-  background: linear-gradient(160deg, var(--cream) 0%, #f8e9d0 100%);
-  border-color: var(--champagne);
+  background: linear-gradient(160deg, #FFF1D7 0%, #F4C690 60%, #E69D5E 100%);
+  border-color: var(--terracotta);
+  color: var(--wine-deep);
 }
+.menu-section-fuegos::before { background: linear-gradient(90deg, var(--terracotta), var(--wine-bright)); height: 4px; }
+.menu-section-fuegos .menu-section-title { color: var(--wine-deep); border-bottom-color: rgba(122, 31, 51, 0.25); }
+.menu-section-fuegos .menu-list h4 { color: var(--wine-deep); }
+.menu-section-fuegos .menu-list p { color: rgba(74, 15, 28, 0.82); }
+.menu-section-fuegos .fire { color: var(--wine); }
 .menu-section-title {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -935,18 +1098,32 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--cream);
   padding: 44px 36px;
   transition: background var(--t-base);
+  position: relative;
 }
-.exp-card:hover { background: var(--cream-soft); }
+.exp-card:hover { background: linear-gradient(180deg, var(--cream) 0%, var(--cream-soft) 100%); }
 .exp-icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--wine);
+  border-radius: 50%;
+  color: var(--cream);
   margin-bottom: 20px;
+  background: var(--grad-wine);
+  box-shadow: 0 8px 20px rgba(74, 15, 28, 0.18);
+  transition: transform var(--t-base), box-shadow var(--t-base);
 }
-.exp-icon svg { width: 100%; height: 100%; }
+.exp-icon svg { width: 60%; height: 60%; }
+.exp-card:hover .exp-icon { transform: rotate(-6deg) scale(1.05); }
+
+/* Rotación de colores para los íconos de experiencia */
+.exp-card:nth-child(1) .exp-icon { background: var(--grad-wine); }
+.exp-card:nth-child(2) .exp-icon { background: var(--grad-vine); box-shadow: 0 8px 20px rgba(79, 81, 40, 0.25); }
+.exp-card:nth-child(3) .exp-icon { background: var(--grad-sunset); box-shadow: 0 8px 20px rgba(199, 91, 60, 0.28); }
+.exp-card:nth-child(4) .exp-icon { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%); color: var(--wine-deep); box-shadow: 0 8px 20px rgba(199, 154, 74, 0.3); }
+.exp-card:nth-child(5) .exp-icon { background: linear-gradient(135deg, var(--olive) 0%, var(--olive-deep) 100%); box-shadow: 0 8px 20px rgba(79, 81, 40, 0.25); }
+.exp-card:nth-child(6) .exp-icon { background: linear-gradient(135deg, var(--plum) 0%, var(--wine-deep) 100%); box-shadow: 0 8px 20px rgba(88, 38, 77, 0.3); }
 .exp-card h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
@@ -960,9 +1137,304 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
+   12b. SECCIÓN GALERÍA
+   ============================================================ */
+.section-galeria {
+  background:
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(199, 154, 74, 0.18), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 100%, rgba(122, 31, 51, 0.08), transparent 60%),
+    var(--cream);
+  position: relative;
+}
+.section-galeria::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--wine), var(--gold), var(--terracotta));
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 180px;
+  gap: 14px;
+}
+.gallery-item {
+  grid-column: span 2;
+  grid-row: span 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #F4DDA8 0%, #E4C684 60%, #C79A4A 100%);
+  border: 1px solid rgba(199, 154, 74, 0.4);
+  box-shadow: 0 10px 28px rgba(74, 15, 28, 0.08);
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+.gallery-item--lg {
+  grid-column: span 3;
+  grid-row: span 2;
+  background: linear-gradient(135deg, #FAE2B7 0%, #C79A4A 50%, #7A1F33 100%);
+}
+.gallery-item--wide { grid-column: span 3; }
+.gallery-item:nth-child(3) { background: linear-gradient(135deg, #F0CFA7 0%, #C75B3C 100%); }
+.gallery-item:nth-child(4) { background: linear-gradient(135deg, #EADCB0 0%, #6B6E3E 100%); }
+.gallery-item:nth-child(5) { background: linear-gradient(135deg, #F4DDA8 0%, #58264D 100%); }
+.gallery-item:nth-child(6) { background: linear-gradient(135deg, #FAE2B7 0%, #C79A4A 60%, #4A0F1C 100%); }
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(74, 15, 28, 0.18);
+}
+
+.gallery-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: rgba(255, 252, 244, 0.92);
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 16px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 252, 244, 0.18), transparent 60%),
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(255, 252, 244, 0.06) 14px 15px);
+}
+.gallery-placeholder svg {
+  opacity: 0.85;
+}
+.gallery-note {
+  text-align: center;
+  margin-top: 28px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+.gallery-note em {
+  color: var(--wine);
+  font-style: italic;
+}
+
+
+/* ============================================================
+   12c. BLOQUE DEL ALIAS DE PAGO
+   ============================================================ */
+.alias-card {
+  margin: 0 0 56px;
+  background: linear-gradient(135deg, #FFFCF4 0%, #FAE2B7 60%, #F0CFA7 100%);
+  border: 1.5px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 44px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(122, 31, 51, 0.1);
+}
+.alias-card::before {
+  content: '';
+  position: absolute;
+  inset: -30% auto auto -10%;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 31, 51, 0.18), transparent 70%);
+  pointer-events: none;
+}
+.alias-card::after {
+  content: '';
+  position: absolute;
+  inset: auto -10% -30% auto;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 91, 60, 0.18), transparent 70%);
+  pointer-events: none;
+}
+.alias-card-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .alias-card-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
+    gap: 36px;
+  }
+}
+.alias-card-text { max-width: 460px; }
+.alias-card-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 10px;
+}
+.alias-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--wine-deep);
+  margin-bottom: 8px;
+}
+.alias-card-sub {
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.alias-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  min-width: 280px;
+}
+@media (min-width: 480px) {
+  .alias-card-actions { align-items: flex-end; }
+}
+
+.alias-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  border: 1.5px dashed var(--wine);
+  border-radius: 100px;
+  background: rgba(255, 252, 244, 0.85);
+  color: var(--wine-deep);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-base);
+  letter-spacing: 0.02em;
+  width: 100%;
+}
+.alias-chip:hover {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: var(--cream);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(122, 31, 51, 0.25);
+}
+.alias-chip.is-copied {
+  background: var(--olive);
+  border-color: var(--olive);
+  border-style: solid;
+  color: var(--cream);
+}
+.alias-chip-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.alias-chip-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: var(--wine);
+  color: var(--cream);
+  transition: background var(--t-base);
+}
+.alias-chip:hover .alias-chip-tag,
+.alias-chip.is-copied .alias-chip-tag {
+  background: var(--cream);
+  color: var(--wine-deep);
+}
+.alias-copy-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.alias-copy-icon { flex-shrink: 0; }
+
+/* Variante "pill" en el CTA final (sobre fondo bordó) */
+.cta-alias {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.cta-alias-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+.cta-alias-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border: 1.5px dashed rgba(228, 198, 132, 0.7);
+  border-radius: 100px;
+  background: rgba(255, 252, 244, 0.06);
+  color: var(--champagne);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-base);
+}
+.cta-alias-pill:hover {
+  background: var(--champagne);
+  color: var(--wine-deep);
+  border-color: var(--champagne);
+  border-style: solid;
+  transform: translateY(-2px);
+}
+.cta-alias-pill.is-copied {
+  background: var(--olive);
+  color: var(--cream);
+  border-color: var(--olive);
+  border-style: solid;
+}
+
+
+/* ============================================================
    13. SECCIÓN UBICACIÓN
    ============================================================ */
-.section-ubicacion { background: var(--cream-soft); }
+.section-ubicacion {
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 100%, rgba(107, 110, 62, 0.12), transparent 60%),
+    var(--cream-soft);
+  position: relative;
+}
+.section-ubicacion::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--terracotta), var(--wine), var(--plum));
+}
 
 .ubicacion-grid {
   display: grid;
@@ -979,23 +1451,37 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 420px;
   background: var(--beige);
 }
+.map-wrapper {
+  border: 2px solid var(--gold);
+  box-shadow: 0 18px 40px rgba(122, 31, 51, 0.12);
+}
 .map-wrapper iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
-  filter: saturate(0.85) contrast(0.98);
+  filter: saturate(1.05) contrast(1.02);
 }
 
 .ubicacion-info {
-  background: var(--cream);
-  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #FFFCF4 0%, #F8EDCF 100%);
+  border: 1px solid var(--champagne);
   border-radius: var(--radius-lg);
   padding: 48px 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 0 18px 40px rgba(122, 31, 51, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.ubicacion-info::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad-sunset);
 }
 .ubicacion-label {
   font-family: var(--font-body);
@@ -1178,10 +1664,21 @@ h1, h2, h3, h4, h5, h6 {
    16. FOOTER
    ============================================================ */
 .site-footer {
-  background: #1a1612;
+  background:
+    radial-gradient(ellipse 40% 60% at 0% 0%, rgba(122, 31, 51, 0.35), transparent 60%),
+    radial-gradient(ellipse 40% 60% at 100% 100%, rgba(199, 154, 74, 0.18), transparent 60%),
+    #1a1612;
   color: rgba(250, 246, 238, 0.7);
   padding: 80px 0 40px;
   margin-top: 0;
+  position: relative;
+}
+.site-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--grad-sunset);
 }
 .footer-inner {
   display: grid;
@@ -1314,6 +1811,15 @@ h1, h2, h3, h4, h5, h6 {
   .exp-grid { grid-template-columns: 1fr 1fr; }
   .tickets-grid { grid-template-columns: 1fr; gap: 36px; }
   .compare { padding: 28px 20px; }
+
+  /* Galería: 4 columnas */
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 160px;
+  }
+  .gallery-item { grid-column: span 2; }
+  .gallery-item--lg { grid-column: span 2; grid-row: span 2; }
+  .gallery-item--wide { grid-column: span 4; }
 }
 
 /* Mobile ---------------------------------------------------- */
@@ -1421,6 +1927,27 @@ h1, h2, h3, h4, h5, h6 {
   /* Experiencia */
   .exp-grid { grid-template-columns: 1fr; }
   .exp-card { padding: 32px 28px; }
+
+  /* Galería: 2 columnas en mobile */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 140px;
+    gap: 10px;
+  }
+  .gallery-item,
+  .gallery-item--lg,
+  .gallery-item--wide {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .gallery-item--lg { grid-row: span 2; }
+  .gallery-placeholder { font-size: 10px; letter-spacing: 0.24em; }
+
+  /* Alias card */
+  .alias-card { padding: 28px 22px; }
+  .alias-card-actions { width: 100%; min-width: 0; align-items: stretch; }
+  .alias-chip { font-size: 13px; padding: 12px 14px; gap: 8px; }
+  .alias-chip-tag { padding: 3px 8px; font-size: 9px; letter-spacing: 0.18em; }
 
   /* Ubicación */
   .ubicacion-info { padding: 36px 28px; }
