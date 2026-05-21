@@ -91,6 +91,8 @@ const WHATSAPP_MESSAGES = {
   const reservationTicketLabel = $('#reservationTicketLabel');
   const reservationStatus = $('#reservationStatus');
   const reservationSubmit = $('#reservationSubmit');
+  const reservationPaymentMethod = $('#reservationPaymentMethod');
+  const reservationAliasBox = $('#reservationAliasBox');
 
   function setReservationStatus(message, type = '') {
     if (!reservationStatus) return;
@@ -104,6 +106,7 @@ const WHATSAPP_MESSAGES = {
     reservationTypeInput.value = ticketType;
     if (reservationTicketLabel) reservationTicketLabel.textContent = `Entrada ${ticketType}`;
     setReservationStatus('');
+    toggleReservationAlias();
     reservationModal.hidden = false;
     document.body.classList.add('modal-open');
     setTimeout(() => $('#reservationName')?.focus(), 40);
@@ -115,7 +118,13 @@ const WHATSAPP_MESSAGES = {
     document.body.classList.remove('modal-open');
     reservationForm.reset();
     setReservationStatus('');
+    toggleReservationAlias();
     if (reservationSubmit) reservationSubmit.disabled = false;
+  }
+
+  function toggleReservationAlias() {
+    if (!reservationPaymentMethod || !reservationAliasBox) return;
+    reservationAliasBox.hidden = reservationPaymentMethod.value !== 'Transferencia';
   }
 
   $$('[data-reserve]').forEach(btn => {
@@ -128,6 +137,8 @@ const WHATSAPP_MESSAGES = {
   $$('[data-reservation-close]').forEach(btn => {
     btn.addEventListener('click', closeReservationModal);
   });
+
+  reservationPaymentMethod?.addEventListener('change', toggleReservationAlias);
 
   reservationModal?.addEventListener('click', (e) => {
     if (e.target === reservationModal) closeReservationModal();

@@ -1257,12 +1257,49 @@
 
           <label class="reservation-field">
             <span>Forma de pago</span>
-            <select name="formaPago" required>
+            <select name="formaPago" id="reservationPaymentMethod" required>
               <option value="">Elegí una opción</option>
               <option value="Efectivo">Efectivo</option>
               <option value="Transferencia">Transferencia</option>
             </select>
           </label>
+
+          <aside
+            class="reservation-alias"
+            id="reservationAliasBox"
+            aria-label="Alias para transferencia"
+            hidden
+          >
+            <p class="reservation-alias-kicker">
+              Reservá tu lugar por transferencia
+            </p>
+            <div class="reservation-alias-row">
+              <span class="reservation-alias-tag">Alias</span>
+              <strong>loscortesanosmacro</strong>
+              <button
+                type="button"
+                class="reservation-alias-copy"
+                data-copy-alias
+                aria-label="Copiar alias loscortesanosmacro"
+              >
+                <span class="alias-copy-label">Copiar</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="9" y="9" width="11" height="11" rx="2" />
+                  <path d="M5 15V6a2 2 0 012-2h9" />
+                </svg>
+              </button>
+            </div>
+          </aside>
 
           <p
             class="reservation-status"
