@@ -299,13 +299,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   width: 42px;
   height: 42px;
-  border: 1.5px solid var(--wine);
+  border: 1.5px solid var(--champagne);
   border-radius: 50%;
   font-family: var(--font-display);
   font-size: 18px;
-  color: var(--wine);
+  color: var(--champagne);
   letter-spacing: -0.04em;
   flex-shrink: 0;
+  transition: border-color var(--t-base), color var(--t-base);
 }
 .brand-dot { color: var(--gold); margin: 0 1px; }
 .brand-text {
@@ -316,16 +317,25 @@ h1, h2, h3, h4, h5, h6 {
 .brand-line-1 {
   font-family: var(--font-display);
   font-size: 18px;
-  color: var(--ink);
+  color: var(--cream);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  transition: color var(--t-base), text-shadow var(--t-base);
 }
 .brand-line-2 {
   font-family: var(--font-body);
   font-size: 10px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: rgba(250, 244, 230, 0.7);
   margin-top: 2px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  transition: color var(--t-base), text-shadow var(--t-base);
 }
+
+/* Estado scrolled: header crema → texto vuelve a oscuro */
+.site-header.scrolled .brand-mark { border-color: var(--wine); color: var(--wine); }
+.site-header.scrolled .brand-line-1 { color: var(--ink); text-shadow: none; }
+.site-header.scrolled .brand-line-2 { color: var(--muted); text-shadow: none; }
 
 .nav-list {
   display: flex;
@@ -334,11 +344,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-list a {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--ink-soft);
+  color: rgba(250, 244, 230, 0.92);
   position: relative;
   padding: 4px 0;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  transition: color var(--t-base), text-shadow var(--t-base);
+}
+.site-header.scrolled .nav-list a {
+  color: var(--ink-soft);
+  font-weight: 500;
+  text-shadow: none;
 }
 .nav-list a::after {
   content: '';
@@ -346,10 +363,12 @@ h1, h2, h3, h4, h5, h6 {
   left: 0; right: 100%;
   bottom: 0;
   height: 1px;
-  background: var(--wine);
+  background: var(--champagne);
   transition: right var(--t-base);
 }
-.nav-list a:hover { color: var(--wine); }
+.nav-list a:hover { color: var(--champagne); }
+.site-header.scrolled .nav-list a::after { background: var(--wine); }
+.site-header.scrolled .nav-list a:hover { color: var(--wine); }
 .nav-list a:hover::after { right: 0; }
 
 .nav-cta { display: inline-flex; }
@@ -392,22 +411,39 @@ h1, h2, h3, h4, h5, h6 {
 .hero-bg { position: absolute; inset: 0; z-index: 0; }
 .hero-bg-image {
   position: absolute; inset: 0;
-  /* Fondo decorativo con más color: dorado, terracota y un toque de vino.
-     Reemplazá por una foto real así:
-     background: url('assets/hero-evento.jpg') center/cover no-repeat;
-     y dejá solo --bg-image-real abajo (descomentando la línea). */
+  /* Foto del lugar como fondo. Si querés cambiarla, reemplazá la URL.
+     center/cover hace que llene la sección y se recorte parejo en cualquier pantalla. */
   background:
-    radial-gradient(ellipse 70% 55% at 18% 25%, rgba(228, 198, 132, 0.75), transparent 65%),
-    radial-gradient(ellipse 65% 50% at 82% 75%, rgba(199, 91, 60, 0.32), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 70% 15%, rgba(122, 31, 51, 0.22), transparent 65%),
-    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(107, 110, 62, 0.28), transparent 70%),
-    linear-gradient(180deg, #FFF6E1 0%, #F4DDA8 55%, #E9C078 100%);
+    url('assets/lugar/foto-lugar-4.jpeg') center center / cover no-repeat;
+  background-color: #1a0e08; /* color base mientras carga */
+  /* Pequeño zoom-in lento que da sensación cinematográfica */
+  animation: heroSlowZoom 24s ease-out infinite alternate;
 }
 .hero-bg-overlay {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(250, 244, 230, 0.0) 0%, rgba(250, 244, 230, 0.45) 100%),
-    repeating-linear-gradient(45deg, transparent 0 4px, rgba(122, 31, 51, 0.02) 4px 5px);
+    /* Capa oscura general para legibilidad del texto */
+    linear-gradient(
+      180deg,
+      rgba(26, 14, 8, 0.55) 0%,
+      rgba(26, 14, 8, 0.35) 30%,
+      rgba(26, 14, 8, 0.45) 65%,
+      rgba(26, 14, 8, 0.78) 100%
+    ),
+    /* Tinte vino arriba a la derecha */
+    radial-gradient(ellipse 60% 50% at 82% 12%, rgba(122, 31, 51, 0.40), transparent 65%),
+    /* Tinte dorado abajo a la izquierda */
+    radial-gradient(ellipse 55% 50% at 12% 88%, rgba(199, 154, 74, 0.32), transparent 65%),
+    /* Vignette para enfocar el centro */
+    radial-gradient(ellipse 100% 80% at 50% 50%, transparent 35%, rgba(26, 14, 8, 0.35) 100%);
+}
+
+@keyframes heroSlowZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-image { animation: none; }
 }
 /* Pequeños "haces" de luz dorados decorativos a los costados del hero */
 .hero::before,
@@ -445,17 +481,18 @@ h1, h2, h3, h4, h5, h6 {
   gap: 14px;
   font-family: var(--font-body);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-deep);
+  color: var(--champagne);
   margin-bottom: 36px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 .hero-eyebrow .line {
   display: block;
   width: 36px;
   height: 1px;
-  background: var(--gold);
+  background: var(--champagne);
 }
 
 .hero-title {
@@ -465,10 +502,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 0.88;
   letter-spacing: -0.03em;
   margin-bottom: 28px;
-  color: var(--ink);
+  color: var(--cream);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
 }
 .hero-title-top {
   display: block;
+  color: var(--cream);
 }
 .hero-title-bottom {
   display: block;
@@ -487,11 +526,12 @@ h1, h2, h3, h4, h5, h6 {
 .hero-subtitle {
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.42em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: rgba(250, 244, 230, 0.88);
   margin-bottom: 56px;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 
 .hero-meta {
@@ -511,29 +551,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero-meta-divider {
   width: 1px;
-  background: var(--line);
+  background: rgba(228, 198, 132, 0.45);
   align-self: stretch;
 }
 .meta-label {
   font-family: var(--font-body);
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--champagne);
   margin-bottom: 10px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 .meta-value {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  color: var(--ink);
+  color: var(--cream);
   line-height: 1.1;
   margin-bottom: 4px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
 }
 .meta-sub {
   font-family: var(--font-body);
   font-size: 13px;
-  color: var(--ink-soft);
+  color: rgba(250, 244, 230, 0.82);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-cta {
@@ -543,13 +586,31 @@ h1, h2, h3, h4, h5, h6 {
   flex-wrap: wrap;
   margin-bottom: 56px;
 }
+/* Botón "Conocer la experiencia" sobre la foto: variante clara */
+.hero-cta .btn-ghost {
+  color: var(--cream);
+  border-color: rgba(250, 244, 230, 0.45);
+  background: rgba(26, 14, 8, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hero-cta .btn-ghost:hover {
+  color: var(--wine-deep);
+  border-color: var(--cream);
+  background: var(--cream);
+}
+/* El primario sobre foto: sombra más marcada para que "salga" del fondo */
+.hero-cta .btn-primary {
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+}
 
 .hero-tagline {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.05rem;
-  color: var(--ink-soft);
+  color: rgba(250, 244, 230, 0.9);
   letter-spacing: 0.08em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
 }
 
 .hero-scroll {
@@ -563,11 +624,12 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   font-family: var(--font-body);
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--ink-soft);
+  color: var(--champagne);
   z-index: 2;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
 }
 .hero-scroll svg { animation: bounce 2.4s ease-in-out infinite; }
 
