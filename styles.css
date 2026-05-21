@@ -579,6 +579,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
@@ -588,6 +592,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 56px;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
+.hero-subtitle span { display: inline-block; }
 
 .hero-meta {
   display: flex;
@@ -2164,6 +2169,7 @@ body.modal-open { overflow: hidden; }
   body { font-size: 16px; }
 
   /* Header */
+  .brand { display: none; }
   .nav-cta { display: none; }
   .nav-toggle { display: flex; }
   .nav { position: static; }
@@ -2202,12 +2208,11 @@ body.modal-open { overflow: hidden; }
   }
   .nav-list a:hover { color: var(--wine); }
   .nav-list a::after { display: none; }
-  .brand-logo { width: clamp(150px, 46vw, 190px); }
 
   /* Hero */
   .hero {
     min-height: auto;
-    padding: 120px 0 60px;
+    padding: 88px 0 60px;
   }
   /* Foto distinta para mobile (poné tu archivo en assets/lugar/foto-lugar-mobile.jpeg).
      Si querés probar otra ruta o formato, cambiá la URL acá abajo. */
@@ -2216,6 +2221,21 @@ body.modal-open { overflow: hidden; }
     /* En portrait conviene mostrar más arriba para no perder el cielo */
     background-position: center;
   }
+  .hero-brand-mark {
+    width: clamp(165px, 52vw, 215px);
+    margin-top: -12px;
+  }
+  .hero-eyebrow { margin-bottom: 22px; }
+  .hero-title-logo { margin-bottom: 22px; }
+  .hero-logo { width: clamp(235px, 76vw, 360px); }
+  .hero-subtitle {
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 42px;
+    letter-spacing: 0.28em;
+    line-height: 1.45;
+  }
+  .hero-subtitle-separator { display: none; }
   .hero-meta {
     flex-direction: column;
     align-items: center;
@@ -2239,7 +2259,6 @@ body.modal-open { overflow: hidden; }
   }
   .hero-cta .btn { width: 100%; }
   .hero-scroll { display: none; }
-  .hero-subtitle { margin-bottom: 40px; }
 
   /* Sección Evento */
   .evento-highlights { grid-template-columns: 1fr 1fr; }
