@@ -290,9 +290,16 @@ h1, h2, h3, h4, h5, h6 {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
+  flex-shrink: 0;
 }
+.brand-logo {
+  display: block;
+  width: clamp(170px, 17vw, 250px);
+  height: auto;
+  transition: filter var(--t-base), opacity var(--t-base);
+}
+.site-header.scrolled .brand-logo { filter: drop-shadow(0 1px 1px rgba(31, 27, 23, 0.08)); }
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -306,7 +313,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--champagne);
   letter-spacing: -0.04em;
   flex-shrink: 0;
-  transition: border-color var(--t-base), color var(--t-base);
 }
 .brand-dot { color: var(--gold); margin: 0 1px; }
 .brand-text {
@@ -333,7 +339,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Estado scrolled: header crema → texto vuelve a oscuro */
-.site-header.scrolled .brand-mark { border-color: var(--wine); color: var(--wine); }
 .site-header.scrolled .brand-line-1 { color: var(--ink); text-shadow: none; }
 .site-header.scrolled .brand-line-2 { color: var(--muted); text-shadow: none; }
 
@@ -408,8 +413,8 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
-  align-items: center;
-  padding: 140px 0 80px;
+  align-items: flex-start;    /* contenido pegado arriba (antes centrado) */
+  padding: 130px 0 80px;       /* PADDING-TOP DEL HERO — bajalo o subilo si querés */
   overflow: hidden;
 }
 
@@ -481,6 +486,23 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+/* ============================================================
+   LOGO "LOS CORTESANOS" arriba del eyebrow.
+   Ajustá el width para hacerlo más grande o más chico.
+   ============================================================ */
+.hero-brand-mark {
+  /* TAMAÑO DEL LOGO LOS CORTESANOS — tocá estos valores:
+     min en mobile  →  ideal según viewport  →  máx en desktop */
+  width: clamp(170px, 22vw, 280px);
+  height: auto;
+  display: block;
+  margin: 0 auto;   /* sin margen — todo pegado por defecto */
+  /* El logo es negro: lo pasamos a blanco con CSS para que se vea sobre la foto */
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45));
+}
+
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -491,7 +513,8 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--champagne);
-  margin-bottom: 36px;
+  margin-top: 0;     /* pegado al logo */
+  margin-bottom: 28px;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
 }
 .hero-eyebrow .line {
@@ -527,6 +550,32 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title-bottom em {
   font-style: italic;
   font-weight: 400;
+}
+
+/* Variante: título con logo en lugar de texto */
+.hero-title-logo {
+  /* Anulamos lo tipográfico del h1 cuando contiene un logo */
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+  text-shadow: none;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: center;
+}
+.hero-logo {
+  /* TAMAÑO DEL LOGO CULTURA CORTESANA — tocá estos valores para hacerlo
+     más grande o más chico:
+     min en mobile  →  ideal según viewport  →  máx en desktop. */
+  width: clamp(220px, 52vw, 560px);
+  height: auto;
+  display: block;
+  /* El logo es negro: lo convertimos a blanco para que se vea sobre la foto.
+     drop-shadow le da la misma "presencia" que tenía el text-shadow del título. */
+  filter:
+    brightness(0) invert(1)
+    drop-shadow(0 6px 24px rgba(0, 0, 0, 0.45))
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
 .hero-subtitle {
@@ -2153,7 +2202,7 @@ body.modal-open { overflow: hidden; }
   }
   .nav-list a:hover { color: var(--wine); }
   .nav-list a::after { display: none; }
-  .brand-text { display: none; }
+  .brand-logo { width: clamp(150px, 46vw, 190px); }
 
   /* Hero */
   .hero {
@@ -2163,9 +2212,9 @@ body.modal-open { overflow: hidden; }
   /* Foto distinta para mobile (poné tu archivo en assets/lugar/foto-lugar-mobile.jpeg).
      Si querés probar otra ruta o formato, cambiá la URL acá abajo. */
   .hero-bg-image {
-    background-image: url('assets/lugar/foto-lugar-mobile.jpeg');
+    background-image: url('assets/lugar/foto-lugar-mobile.png');
     /* En portrait conviene mostrar más arriba para no perder el cielo */
-    background-position: center top;
+    background-position: center;
   }
   .hero-meta {
     flex-direction: column;
