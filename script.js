@@ -13,6 +13,10 @@ const WHATSAPP_NUMBER = '5493492717777';
 /* Alias para transferencias (se muestra en la página y se usa en los mensajes de WhatsApp). */
 const ALIAS = 'loscortesanosmacro';
 
+/* URL del Web App de Google Apps Script.
+   Pegá acá la URL que termina en /exec después de publicar el Apps Script como Web App. */
+const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwrdbf6MXWKzR5c5u08yYcbb7FHCCKOjdo-67OVNG8GUtTkH0-qGb57celpxi2GDGdB/exec';
+
 /* Mensajes predeterminados de WhatsApp.
    Se arman distintos según desde dónde haga clic el cliente. */
 const WHATSAPP_MESSAGES = {
@@ -44,6 +48,31 @@ const WHATSAPP_MESSAGES = {
     return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
   }
 
+  function prettyTicketType(type) {
+    return String(type).toLowerCase() === 'vip' ? 'VIP' : 'GENERAL';
+  }
+
+  function buildReservationMessage(data) {
+    const ticketType = prettyTicketType(data.tipoEntrada);
+    const fullName = `${data.nombre} ${data.apellido}`.trim();
+    return `¡Hola! Soy ${fullName}. Quiero reservar una Entrada ${ticketType} para Cultura Cortesana del sábado 13 de junio. DNI: ${data.dni}. Teléfono: ${data.telefono}. Forma de pago: ${data.formaPago}. ¿Me confirman cupo?`;
+  }
+
+  async function saveReservationToSheet(data) {
+    if (!GOOGLE_SHEET_WEB_APP_URL) return { skipped: true };
+
+    const formData = new FormData();
+    Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+
+    await fetch(GOOGLE_SHEET_WEB_APP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    });
+
+    return { skipped: false };
+  }
+
   /* Cada link/botón con [data-wa] se transforma automáticamente en un link de WhatsApp.
      El valor de data-wa elige el mensaje: "default" | "general" | "vip". */
   $$('[data-wa]').forEach(el => {
@@ -52,6 +81,110 @@ const WHATSAPP_MESSAGES = {
     el.href = buildWaUrl(WHATSAPP_NUMBER, message);
     el.target = '_blank';
     el.rel = 'noopener noreferrer';
+  });
+
+
+  /* ---------- 3a. Reserva: Google Sheets + WhatsApp ---------- */
+  const reservationModal = $('#reservationModal');
+  const reservationForm = $('#reservationForm');
+  const reservationTypeInput = $('#reservationType');
+  const reservationTicketLabel = $('#reservationTicketLabel');
+  const reservationStatus = $('#reservationStatus');
+  const reservationSubmit = $('#reservationSubmit');
+
+  function setReservationStatus(message, type = '') {
+    if (!reservationStatus) return;
+    reservationStatus.textContent = message;
+    reservationStatus.dataset.status = type;
+  }
+
+  function openReservationModal(type) {
+    if (!reservationModal || !reservationForm || !reservationTypeInput) return;
+    const ticketType = prettyTicketType(type);
+    reservationTypeInput.value = ticketType;
+    if (reservationTicketLabel) reservationTicketLabel.textContent = `Entrada ${ticketType}`;
+    setReservationStatus('');
+    reservationModal.hidden = false;
+    document.body.classList.add('modal-open');
+    setTimeout(() => $('#reservationName')?.focus(), 40);
+  }
+
+  function closeReservationModal() {
+    if (!reservationModal || !reservationForm) return;
+    reservationModal.hidden = true;
+    document.body.classList.remove('modal-open');
+    reservationForm.reset();
+    setReservationStatus('');
+    if (reservationSubmit) reservationSubmit.disabled = false;
+  }
+
+  $$('[data-reserve]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openReservationModal(btn.getAttribute('data-reserve'));
+    });
+  });
+
+  $$('[data-reservation-close]').forEach(btn => {
+    btn.addEventListener('click', closeReservationModal);
+  });
+
+  reservationModal?.addEventListener('click', (e) => {
+    if (e.target === reservationModal) closeReservationModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && reservationModal && !reservationModal.hidden) {
+      closeReservationModal();
+    }
+  });
+
+  reservationForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(reservationForm);
+    const reservationData = {
+      nombre: String(formData.get('nombre') || '').trim(),
+      apellido: String(formData.get('apellido') || '').trim(),
+      dni: String(formData.get('dni') || '').trim(),
+      telefono: String(formData.get('telefono') || '').trim(),
+      tipoEntrada: String(formData.get('tipoEntrada') || '').trim(),
+      formaPago: String(formData.get('formaPago') || '').trim(),
+      pago: 'Pendiente'
+    };
+
+    if (
+      !reservationData.nombre ||
+      !reservationData.apellido ||
+      !reservationData.dni ||
+      !reservationData.telefono ||
+      !reservationData.tipoEntrada ||
+      !reservationData.formaPago
+    ) {
+      setReservationStatus('Completá todos los campos para continuar.', 'error');
+      return;
+    }
+
+    if (reservationSubmit) reservationSubmit.disabled = true;
+    setReservationStatus('Guardando la reserva y abriendo WhatsApp...', 'loading');
+
+    const waMessage = buildReservationMessage(reservationData);
+    const waUrl = buildWaUrl(WHATSAPP_NUMBER, waMessage);
+    const whatsappWindow = window.open('about:blank', '_blank');
+
+    try {
+      await saveReservationToSheet(reservationData);
+    } catch (err) {
+      console.warn('No se pudo guardar la reserva en Google Sheets.', err);
+    } finally {
+      if (whatsappWindow) {
+        whatsappWindow.opener = null;
+        whatsappWindow.location.href = waUrl;
+      } else {
+        window.location.href = waUrl;
+      }
+      closeReservationModal();
+    }
   });
 
 

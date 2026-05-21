@@ -58,10 +58,39 @@ También podés cambiar el mensaje predeterminado:
 const WHATSAPP_MESSAGE = '¡Hola! Quiero reservar mi entrada...';
 ```
 
-### 2. Cambiar precios, cupos o beneficios
+### 2. Conectar reservas con Google Sheets
+La web ya tiene el formulario que guarda:
+- Nombre
+- Apellido
+- DNI
+- Nro. de teléfono
+- Entrada: GENERAL o VIP
+- Forma de pago: Efectivo o Transferencia
+- Pago: queda como `Pendiente` para que lo cambies manualmente cuando confirme
+
+Para activarlo:
+
+1. Abrí la planilla de Google Sheets.
+2. Andá a **Extensiones → Apps Script**.
+3. Pegá el contenido de `google-apps-script.gs`.
+4. Guardá el proyecto.
+5. Tocá **Implementar → Nueva implementación**.
+6. Elegí tipo **Aplicación web**.
+7. En "Ejecutar como", elegí **Yo**.
+8. En "Quién tiene acceso", elegí **Cualquier persona**.
+9. Implementá y copiá la URL que termina en `/exec`.
+10. Pegá esa URL en `script.js`:
+
+```js
+const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/XXXXX/exec';
+```
+
+Importante: si cambiás el Apps Script después de publicarlo, tenés que crear una nueva versión o actualizar la implementación para que la web use el código nuevo.
+
+### 3. Cambiar precios, cupos o beneficios
 Abrí `index.html`, buscá la sección `<!-- ENTRADAS -->` (alrededor de la línea donde aparece "Entrada General"). Modificá los textos directamente, son HTML plano.
 
-### 3. Cambiar fecha, lugar u horario
+### 4. Cambiar fecha, lugar u horario
 Hacé buscar y reemplazar en `index.html`:
 - `13 de junio de 2026`
 - `al mediodía`
@@ -70,7 +99,7 @@ Hacé buscar y reemplazar en `index.html`:
 
 Aparecen en el hero, en ubicación, en FAQ, en footer y en el script de Schema.org del `<head>`. Cambiá todos para mantener consistencia.
 
-### 4. Cambiar la paleta de colores
+### 5. Cambiar la paleta de colores
 Abrí `styles.css`. Al principio (sección "1. VARIABLES") están todos los colores:
 
 ```css
@@ -84,7 +113,7 @@ Abrí `styles.css`. Al principio (sección "1. VARIABLES") están todos los colo
 
 Cambiá los valores y se actualiza todo el sitio automáticamente.
 
-### 5. Sumar logos reales de bodegas
+### 6. Sumar logos reales de bodegas
 1. Conseguí los logos en PNG con fondo transparente (idealmente).
 2. Guardalos en `assets/bodegas/` con nombres simples: `bottega.png`, `lagarde.png`, etc.
 3. En `index.html`, buscá la sección `<!-- BODEGAS -->` y reemplazá cada línea así:
@@ -99,7 +128,7 @@ Cambiá los valores y se actualiza todo el sitio automáticamente.
 
 El CSS ya está preparado para mostrar los logos elegantes (en escala de grises que se colorea al pasar el mouse).
 
-### 6. Reemplazar el fondo del hero por una foto real
+### 7. Reemplazar el fondo del hero por una foto real
 1. Conseguí una foto horizontal de alta calidad (mínimo 1920px de ancho) — un viñedo, la finca, o copas al sol.
 2. Guardala como `assets/hero-evento.jpg`.
 3. En `styles.css`, buscá `.hero-bg-image` y reemplazá el bloque por:
@@ -114,14 +143,14 @@ El CSS ya está preparado para mostrar los logos elegantes (en escala de grises 
 }
 ```
 
-### 7. Cambiar el mapa
+### 8. Cambiar el mapa
 En `index.html`, buscá `<!-- Mapa: -->`. Te dejé apuntando a "Bella Italia, Santa Fe".
 Cuando tengas la ubicación exacta de Finca Los Teros:
 1. Andá a [Google Maps](https://maps.google.com), buscá el lugar.
 2. Clic en **Compartir → Insertar mapa → Copiar HTML**.
 3. Reemplazá el `<iframe>` actual por el nuevo.
 
-### 8. Cambiar la imagen para compartir en WhatsApp / Instagram (Open Graph)
+### 9. Cambiar la imagen para compartir en WhatsApp / Instagram (Open Graph)
 1. Diseñá una imagen de **1200×630 píxeles** (formato horizontal estándar para previews de redes).
 2. Guardala como `assets/og-image.jpg`.
 3. Ya está enlazada en el `<head>` del HTML. Solo subila al servidor.

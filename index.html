@@ -141,9 +141,7 @@
           </ul>
         </nav>
 
-        <a href="#" class="btn btn-primary btn-sm nav-cta" data-wa="default"
-          >Reservar</a
-        >
+        <a href="#entradas" class="btn btn-primary btn-sm nav-cta">Reservar</a>
 
         <button
           class="nav-toggle"
@@ -386,7 +384,7 @@
       <!-- ============================================
          ENTRADAS
          ============================================ -->
-      <section class="section section-entradas" id="entradas">
+      <section class="section section-entradas">
         <div class="container">
           <header class="section-head">
             <p class="eyebrow">Entradas</p>
@@ -399,7 +397,7 @@
 
           <div class="tickets-grid">
             <!-- ENTRADA GENERAL -->
-            <article class="ticket ticket-general">
+            <article class="ticket ticket-general" id="entradas">
               <header class="ticket-head">
                 <p class="ticket-kicker">Entrada General</p>
                 <p class="ticket-stock">Primera tanda · 50 entradas</p>
@@ -421,7 +419,11 @@
                 </li>
               </ul>
 
-              <a href="#" class="btn btn-outline btn-block" data-wa="general"
+              <a
+                href="#"
+                class="btn btn-outline btn-block"
+                data-wa="general"
+                data-reserve="general"
                 >Reservar General</a
               >
             </article>
@@ -452,7 +454,11 @@
                 </li>
               </ul>
 
-              <a href="#" class="btn btn-primary btn-block" data-wa="vip"
+              <a
+                href="#"
+                class="btn btn-primary btn-block"
+                data-wa="vip"
+                data-reserve="vip"
                 >Reservar VIP</a
               >
             </article>
@@ -1059,12 +1065,10 @@
             </p>
 
             <div class="cta-buttons">
-              <!-- WHATSAPP: cambiá el número en script.js (variable WHATSAPP_NUMBER) -->
               <a
-                href="#"
+                href="#entradas"
                 class="btn btn-primary btn-lg"
                 id="ctaWhatsapp"
-                data-wa="default"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -1174,6 +1178,108 @@
         />
       </svg>
     </a>
+
+    <!-- ============================================
+       MODAL DE RESERVA
+       ============================================ -->
+    <div
+      class="reservation-modal"
+      id="reservationModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="reservationTitle"
+      hidden
+    >
+      <div class="reservation-dialog">
+        <button
+          type="button"
+          class="reservation-close"
+          data-reservation-close
+          aria-label="Cerrar formulario"
+        >
+          ×
+        </button>
+
+        <p class="reservation-kicker" id="reservationTicketLabel">Entrada</p>
+        <h2 class="reservation-title" id="reservationTitle">
+          Datos para reservar
+        </h2>
+        <p class="reservation-copy">
+          Los guardamos en la planilla y después te abrimos WhatsApp para
+          completar la reserva.
+        </p>
+
+        <form class="reservation-form" id="reservationForm">
+          <input type="hidden" name="tipoEntrada" id="reservationType" />
+
+          <label class="reservation-field">
+            <span>Nombre</span>
+            <input
+              type="text"
+              name="nombre"
+              id="reservationName"
+              autocomplete="given-name"
+              required
+            />
+          </label>
+
+          <label class="reservation-field">
+            <span>Apellido</span>
+            <input
+              type="text"
+              name="apellido"
+              autocomplete="family-name"
+              required
+            />
+          </label>
+
+          <label class="reservation-field">
+            <span>DNI</span>
+            <input
+              type="text"
+              name="dni"
+              autocomplete="off"
+              inputmode="numeric"
+              required
+            />
+          </label>
+
+          <label class="reservation-field">
+            <span>Nro. de teléfono</span>
+            <input
+              type="tel"
+              name="telefono"
+              autocomplete="tel"
+              inputmode="tel"
+              required
+            />
+          </label>
+
+          <label class="reservation-field">
+            <span>Forma de pago</span>
+            <select name="formaPago" required>
+              <option value="">Elegí una opción</option>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Transferencia">Transferencia</option>
+            </select>
+          </label>
+
+          <p
+            class="reservation-status"
+            id="reservationStatus"
+            aria-live="polite"
+          ></p>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-block"
+            id="reservationSubmit"
+          >
+            Guardar y abrir WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

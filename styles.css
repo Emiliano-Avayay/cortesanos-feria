@@ -387,8 +387,13 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   width: 22px;
   height: 1.5px;
+  background: var(--cream);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  transition: transform var(--t-base), opacity var(--t-base), background var(--t-base), box-shadow var(--t-base);
+}
+.site-header.scrolled .nav-toggle span {
   background: var(--ink);
-  transition: transform var(--t-base), opacity var(--t-base);
+  box-shadow: none;
 }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -414,7 +419,7 @@ h1, h2, h3, h4, h5, h6 {
   /* Foto del lugar como fondo. Si querés cambiarla, reemplazá la URL.
      center/cover hace que llene la sección y se recorte parejo en cualquier pantalla. */
   background:
-    url('assets/lugar/foto-lugar-4.jpeg') center center / cover no-repeat;
+    url('assets/lugar/foto-lugar-6.png') center center / cover no-repeat;
   background-color: #1a0e08; /* color base mientras carga */
   /* Pequeño zoom-in lento que da sensación cinematográfica */
   animation: heroSlowZoom 24s ease-out infinite alternate;
@@ -445,25 +450,26 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-image { animation: none; }
 }
-/* Pequeños "haces" de luz dorados decorativos a los costados del hero */
+/* Pequeños halos de luz suaves sobre la foto */
 .hero::before,
 .hero::after {
   content: '';
   position: absolute;
-  width: 360px;
-  height: 360px;
+  width: 340px;
+  height: 340px;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(90px);
   z-index: 0;
   pointer-events: none;
+  opacity: 0.55;
 }
 .hero::before {
-  background: radial-gradient(circle, rgba(122, 31, 51, 0.32), transparent 70%);
+  background: radial-gradient(circle, rgba(199, 154, 74, 0.45), transparent 70%);
   top: -120px;
   right: -120px;
 }
 .hero::after {
-  background: radial-gradient(circle, rgba(199, 154, 74, 0.45), transparent 70%);
+  background: radial-gradient(circle, rgba(122, 31, 51, 0.4), transparent 70%);
   bottom: -140px;
   left: -120px;
 }
@@ -1824,7 +1830,137 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* ============================================================
-   18. ANIMACIONES
+   18. MODAL DE RESERVA
+   ============================================================ */
+body.modal-open { overflow: hidden; }
+
+.reservation-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(31, 27, 23, 0.58);
+  backdrop-filter: blur(8px);
+}
+.reservation-modal[hidden] { display: none; }
+
+.reservation-dialog {
+  position: relative;
+  width: min(100%, 480px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: linear-gradient(160deg, #FFFCF4 0%, #FAEFD2 100%);
+  border: 1px solid var(--champagne);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 42px 36px 36px;
+}
+
+.reservation-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--ink-soft);
+  font-size: 28px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: background var(--t-base), color var(--t-base);
+}
+.reservation-close:hover {
+  background: rgba(122, 31, 51, 0.08);
+  color: var(--wine);
+}
+
+.reservation-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 10px;
+}
+.reservation-title {
+  font-size: clamp(2rem, 8vw, 2.7rem);
+  color: var(--wine-deep);
+  margin-bottom: 10px;
+}
+.reservation-copy {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-bottom: 26px;
+}
+
+.reservation-form {
+  display: grid;
+  gap: 16px;
+}
+.reservation-field {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.reservation-field input,
+.reservation-field select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 252, 244, 0.82);
+  color: var(--ink);
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 14px 15px;
+  outline: none;
+  transition: border-color var(--t-base), box-shadow var(--t-base), background var(--t-base);
+}
+.reservation-field select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--wine) 50%),
+    linear-gradient(135deg, var(--wine) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 50%,
+    calc(100% - 14px) 50%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+.reservation-field input:focus,
+.reservation-field select:focus {
+  border-color: var(--wine);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(122, 31, 51, 0.12);
+}
+
+.reservation-status {
+  min-height: 22px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.reservation-status[data-status="error"] { color: var(--wine); }
+.reservation-status[data-status="loading"] { color: var(--gold-deep); }
+
+.reservation-form .btn:disabled {
+  opacity: 0.68;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ============================================================
+   19. ANIMACIONES
    ============================================================ */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
@@ -1921,8 +2057,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 16px 0;
     font-size: 1.4rem;
     font-family: var(--font-display);
+    color: var(--ink);
+    text-shadow: none;
     border-bottom: 1px solid var(--line);
   }
+  .nav-list a:hover { color: var(--wine); }
   .nav-list a::after { display: none; }
   .brand-text { display: none; }
 
@@ -1930,6 +2069,13 @@ h1, h2, h3, h4, h5, h6 {
   .hero {
     min-height: auto;
     padding: 120px 0 60px;
+  }
+  /* Foto distinta para mobile (poné tu archivo en assets/lugar/foto-lugar-mobile.jpeg).
+     Si querés probar otra ruta o formato, cambiá la URL acá abajo. */
+  .hero-bg-image {
+    background-image: url('assets/lugar/foto-lugar-mobile.jpeg');
+    /* En portrait conviene mostrar más arriba para no perder el cielo */
+    background-position: center top;
   }
   .hero-meta {
     flex-direction: column;
