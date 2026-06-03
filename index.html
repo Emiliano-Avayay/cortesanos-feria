@@ -94,20 +94,6 @@
         "offers": [
           {
             "@type": "Offer",
-            "name": "Entrada General completa",
-            "price": "85000",
-            "priceCurrency": "ARS",
-            "availability": "https://schema.org/LimitedAvailability"
-          },
-          {
-            "@type": "Offer",
-            "name": "Entrada VIP completa",
-            "price": "135000",
-            "priceCurrency": "ARS",
-            "availability": "https://schema.org/LimitedAvailability"
-          },
-          {
-            "@type": "Offer",
             "name": "Entrada General sin comida",
             "price": "60000",
             "priceCurrency": "ARS",
@@ -117,6 +103,20 @@
             "@type": "Offer",
             "name": "Entrada VIP sin comida",
             "price": "110000",
+            "priceCurrency": "ARS",
+            "availability": "https://schema.org/LimitedAvailability"
+          },
+          {
+            "@type": "Offer",
+            "name": "Entrada General completa",
+            "price": "85000",
+            "priceCurrency": "ARS",
+            "availability": "https://schema.org/LimitedAvailability"
+          },
+          {
+            "@type": "Offer",
+            "name": "Entrada VIP completa",
+            "price": "135000",
             "priceCurrency": "ARS",
             "availability": "https://schema.org/LimitedAvailability"
           }
@@ -427,135 +427,135 @@
           </header>
 
           <div class="tickets-grid">
-            <!-- ENTRADA GENERAL -->
+            <!-- ENTRADA GENERAL SIN COMIDA -->
             <article class="ticket ticket-general" id="entradas">
               <header class="ticket-head">
-                <p class="ticket-kicker">Entrada General</p>
-                <p class="ticket-stock">100 entradas · con o sin comida</p>
+                <p class="ticket-kicker">Entrada General sin comida</p>
+                <p class="ticket-stock">100 entradas generales</p>
               </header>
 
-              <div class="ticket-options">
-                <div class="ticket-option ticket-option-secondary">
-                  <div class="ticket-option-head">
-                    <h3>Entrada General sin comida</h3>
-                    <div class="ticket-price">
-                      <span class="price-currency">$</span>
-                      <span class="price-amount">60.000</span>
-                    </div>
-                  </div>
-                  <ul class="ticket-features">
-                    <li>Ingreso al evento</li>
-                    <li>Degustación de 150 etiquetas</li>
-                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
-                    <li>Copón de regalo</li>
-                    <li>Experiencia general en Finca Los Teros</li>
-                    <li><strong>No incluye gastronomía</strong></li>
-                  </ul>
-                  <a
-                    href="#"
-                    class="btn btn-outline btn-block"
-                    data-wa="general-sin-comida"
-                    data-reserve="general-sin-comida"
-                    >Reservar General sin comida</a
-                  >
-                </div>
-
-                <div class="ticket-option">
-                  <div class="ticket-option-head">
-                    <h3>Entrada General completa</h3>
-                    <div class="ticket-price">
-                      <span class="price-currency">$</span>
-                      <span class="price-amount">85.000</span>
-                    </div>
-                  </div>
-                  <ul class="ticket-features">
-                    <li>Ingreso al evento</li>
-                    <li>Degustación de 150 etiquetas</li>
-                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
-                    <li>Copón de regalo</li>
-                    <li>Gastronomía incluida</li>
-                    <li>
-                      <strong>Voucher de $25.000</strong> para comprar los vinos
-                      que más te gustaron
-                    </li>
-                    <li>Experiencia general en Finca Los Teros</li>
-                  </ul>
-                  <a
-                    href="#"
-                    class="btn btn-outline btn-block"
-                    data-wa="general-completa"
-                    data-reserve="general-completa"
-                    >Reservar General completa</a
-                  >
-                </div>
+              <div class="ticket-price">
+                <span class="price-currency">$</span>
+                <span class="price-amount">60.000</span>
               </div>
+
+              <ul class="ticket-features">
+                <li>Ingreso al evento</li>
+                <li>Degustación de 150 etiquetas</li>
+                <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                <li>Copón de regalo</li>
+                <li>Experiencia general en Finca Los Teros</li>
+                <li><strong>No incluye gastronomía</strong></li>
+              </ul>
+
+              <a
+                href="#"
+                class="btn btn-outline btn-block"
+                data-wa="general-sin-comida"
+                data-reserve="general-sin-comida"
+                >Reservar General sin comida</a
+              >
             </article>
 
-            <!-- ENTRADA VIP -->
+            <!-- ENTRADA VIP SIN COMIDA -->
+            <article class="ticket ticket-vip">
+              <header class="ticket-head">
+                <p class="ticket-kicker">Entrada VIP sin comida</p>
+                <p class="ticket-stock">50 entradas VIP</p>
+              </header>
+
+              <div class="ticket-price">
+                <span class="price-currency">$</span>
+                <span class="price-amount">110.000</span>
+              </div>
+
+              <ul class="ticket-features">
+                <li>Ingreso al evento</li>
+                <li>Degustación de 150 etiquetas</li>
+                <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                <li><strong>Sector living VIP</strong></li>
+                <li><strong>Degustación de etiquetas premium</strong></li>
+                <li>Copón de regalo</li>
+                <li><strong>No incluye gastronomía</strong></li>
+              </ul>
+
+              <a
+                href="#"
+                class="btn btn-primary btn-block"
+                data-wa="vip-sin-comida"
+                data-reserve="vip-sin-comida"
+                >Reservar VIP sin comida</a
+              >
+            </article>
+
+            <!-- ENTRADA GENERAL COMPLETA -->
+            <article class="ticket ticket-general">
+              <header class="ticket-head">
+                <p class="ticket-kicker">Entrada General completa</p>
+                <p class="ticket-stock">100 entradas generales</p>
+              </header>
+
+              <div class="ticket-price">
+                <span class="price-currency">$</span>
+                <span class="price-amount">85.000</span>
+              </div>
+
+              <ul class="ticket-features">
+                <li>Ingreso al evento</li>
+                <li>Degustación de 150 etiquetas</li>
+                <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                <li>Copón de regalo</li>
+                <li>Gastronomía incluida</li>
+                <li>
+                  <strong>Voucher de $25.000</strong> para comprar los vinos
+                  que más te gustaron
+                </li>
+                <li>Experiencia general en Finca Los Teros</li>
+              </ul>
+
+              <a
+                href="#"
+                class="btn btn-outline btn-block"
+                data-wa="general-completa"
+                data-reserve="general-completa"
+                >Reservar General completa</a
+              >
+            </article>
+
+            <!-- ENTRADA VIP COMPLETA -->
             <article class="ticket ticket-vip">
               <span class="ticket-badge">Más solicitada</span>
               <header class="ticket-head">
-                <p class="ticket-kicker">Entrada VIP</p>
-                <p class="ticket-stock">50 entradas · con o sin comida</p>
+                <p class="ticket-kicker">Entrada VIP completa</p>
+                <p class="ticket-stock">50 entradas VIP</p>
               </header>
 
-              <div class="ticket-options">
-                <div class="ticket-option ticket-option-secondary">
-                  <div class="ticket-option-head">
-                    <h3>Entrada VIP sin comida</h3>
-                    <div class="ticket-price">
-                      <span class="price-currency">$</span>
-                      <span class="price-amount">110.000</span>
-                    </div>
-                  </div>
-                  <ul class="ticket-features">
-                    <li>Ingreso al evento</li>
-                    <li>Degustación de 150 etiquetas</li>
-                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
-                    <li><strong>Sector living VIP</strong></li>
-                    <li><strong>Degustación de etiquetas premium</strong></li>
-                    <li>Copón de regalo</li>
-                    <li><strong>No incluye gastronomía</strong></li>
-                  </ul>
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-block"
-                    data-wa="vip-sin-comida"
-                    data-reserve="vip-sin-comida"
-                    >Reservar VIP sin comida</a
-                  >
-                </div>
-
-                <div class="ticket-option">
-                  <div class="ticket-option-head">
-                    <h3>Entrada VIP completa</h3>
-                    <div class="ticket-price">
-                      <span class="price-currency">$</span>
-                      <span class="price-amount">135.000</span>
-                    </div>
-                  </div>
-                  <ul class="ticket-features">
-                    <li>Ingreso al evento</li>
-                    <li>Degustación de 150 etiquetas</li>
-                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
-                    <li><strong>Sector living VIP</strong></li>
-                    <li><strong>Degustación de etiquetas premium</strong></li>
-                    <li>Copón de regalo</li>
-                    <li>Gastronomía incluida</li>
-                    <li>
-                      <strong>Voucher de $65.000</strong> para comprar los vinos
-                      que más te gustaron
-                    </li>
-                  </ul>
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-block"
-                    data-wa="vip-completa"
-                    data-reserve="vip-completa"
-                    >Reservar VIP completa</a
-                  >
-                </div>
+              <div class="ticket-price">
+                <span class="price-currency">$</span>
+                <span class="price-amount">135.000</span>
               </div>
+
+              <ul class="ticket-features">
+                <li>Ingreso al evento</li>
+                <li>Degustación de 150 etiquetas</li>
+                <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                <li><strong>Sector living VIP</strong></li>
+                <li><strong>Degustación de etiquetas premium</strong></li>
+                <li>Copón de regalo</li>
+                <li>Gastronomía incluida</li>
+                <li>
+                  <strong>Voucher de $65.000</strong> para comprar los vinos
+                  que más te gustaron
+                </li>
+              </ul>
+
+              <a
+                href="#"
+                class="btn btn-primary btn-block"
+                data-wa="vip-completa"
+                data-reserve="vip-completa"
+                >Reservar VIP completa</a
+              >
             </article>
           </div>
 
@@ -627,23 +627,23 @@
             >
               <div class="compare-row compare-row-head" role="row">
                 <div role="columnheader">Beneficio</div>
-                <div role="columnheader">General completa</div>
-                <div role="columnheader">VIP completa</div>
                 <div role="columnheader">General sin comida</div>
                 <div role="columnheader">VIP sin comida</div>
+                <div role="columnheader">General completa</div>
+                <div role="columnheader">VIP completa</div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Ingreso al evento</div>
-                <div role="cell" data-label="General completa">
-                  <span class="check">✓</span>
-                </div>
-                <div role="cell" data-label="VIP completa">
-                  <span class="check">✓</span>
-                </div>
                 <div role="cell" data-label="General sin comida">
                   <span class="check">✓</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP completa">
                   <span class="check">✓</span>
                 </div>
               </div>
@@ -651,16 +651,16 @@
                 <div role="cell" data-label="Beneficio">
                   Degustación 150 etiquetas
                 </div>
-                <div role="cell" data-label="General completa">
-                  <span class="check">✓</span>
-                </div>
-                <div role="cell" data-label="VIP completa">
-                  <span class="check">✓</span>
-                </div>
                 <div role="cell" data-label="General sin comida">
                   <span class="check">✓</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP completa">
                   <span class="check">✓</span>
                 </div>
               </div>
@@ -668,61 +668,61 @@
                 <div role="cell" data-label="Beneficio">
                   Gastronomía incluida
                 </div>
-                <div role="cell" data-label="General completa">
-                  <span class="check">✓</span>
-                </div>
-                <div role="cell" data-label="VIP completa">
-                  <span class="check">✓</span>
-                </div>
                 <div role="cell" data-label="General sin comida">
                   <span class="dash">—</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
                   <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="General completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP completa">
+                  <span class="check">✓</span>
                 </div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Copón de regalo</div>
-                <div role="cell" data-label="General completa">
-                  <span class="check">✓</span>
-                </div>
-                <div role="cell" data-label="VIP completa">
-                  <span class="check">✓</span>
-                </div>
                 <div role="cell" data-label="General sin comida">
                   <span class="check">✓</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP completa">
                   <span class="check">✓</span>
                 </div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Sector living VIP</div>
-                <div role="cell" data-label="General completa">
-                  <span class="dash">—</span>
-                </div>
-                <div role="cell" data-label="VIP completa">
-                  <span class="check">✓</span>
-                </div>
                 <div role="cell" data-label="General sin comida">
                   <span class="dash">—</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General completa">
+                  <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="VIP completa">
                   <span class="check">✓</span>
                 </div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Etiquetas premium</div>
-                <div role="cell" data-label="General completa">
-                  <span class="dash">—</span>
-                </div>
-                <div role="cell" data-label="VIP completa">
-                  <span class="check">✓</span>
-                </div>
                 <div role="cell" data-label="General sin comida">
                   <span class="dash">—</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General completa">
+                  <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="VIP completa">
                   <span class="check">✓</span>
                 </div>
               </div>
@@ -730,21 +730,21 @@
                 <div role="cell" data-label="Beneficio">
                   Voucher Los Cortesanos
                 </div>
-                <div role="cell" data-label="General completa">$25.000</div>
-                <div role="cell" data-label="VIP completa">$65.000</div>
                 <div role="cell" data-label="General sin comida">
                   <span class="dash">—</span>
                 </div>
                 <div role="cell" data-label="VIP sin comida">
                   <span class="dash">—</span>
                 </div>
+                <div role="cell" data-label="General completa">$25.000</div>
+                <div role="cell" data-label="VIP completa">$65.000</div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Precio</div>
-                <div role="cell" data-label="General completa">$85.000</div>
-                <div role="cell" data-label="VIP completa">$135.000</div>
                 <div role="cell" data-label="General sin comida">$60.000</div>
                 <div role="cell" data-label="VIP sin comida">$110.000</div>
+                <div role="cell" data-label="General completa">$85.000</div>
+                <div role="cell" data-label="VIP completa">$135.000</div>
               </div>
             </div>
           </div>
