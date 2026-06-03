@@ -37,7 +37,7 @@
       property="og:description"
       content="Sábado 13 de junio de 2026 — Finca Los Teros, Bella Italia. Más de 150 etiquetas, opciones con gastronomía, música y aire libre."
     />
-    <meta property="og:image" content="assets/og-image.jpg" />
+    <meta property="og:image" content="./assets/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:url" content="https://culturacortesana.com.ar/" />
@@ -49,7 +49,7 @@
       name="twitter:description"
       content="8 años de Los Cortesanos en Rafaela. Sábado 13 de junio de 2026. Finca Los Teros, Bella Italia."
     />
-    <meta name="twitter:image" content="assets/og-image.jpg" />
+    <meta name="twitter:image" content="./assets/og-image.jpg" />
 
     <!-- Favicon (reemplazá por el real cuando lo tengas) -->
     <link rel="icon" type="image" href="./assets/logo-cortesanos.png" />
@@ -138,7 +138,7 @@
         >
           <img
             class="brand-logo"
-            src="assets/logo-cortesanos.png"
+            src="./assets/logo-cortesanos.png"
             alt="Los Cortesanos Experiencia"
           />
         </a>
@@ -196,7 +196,7 @@
 
           <h1 class="hero-title hero-title-logo">
             <img
-              src="assets/logo-cultura-cortesana-blanco.png"
+              src="./assets/logo-cultura-cortesana-blanco.png"
               alt="Cultura Cortesana"
               class="hero-logo"
               width="593"
@@ -406,7 +406,7 @@
           </ul>
 
           <p class="bodegas-note">
-            <!-- NOTA: cuando tengas los logos oficiales, reemplazá el span de cada .bodega-card por <img src="assets/bodegas/nombre.png" alt="Bodega Nombre">. El CSS ya está preparado para mostrarlos elegantes. -->
+            <!-- NOTA: cuando tengas los logos oficiales, reemplazá el span de cada .bodega-card por <img src="./assets/bodegas/nombre.png" alt="Bodega Nombre">. El CSS ya está preparado para mostrarlos elegantes. -->
             Más de 150 etiquetas distintas para descubrir en una sola jornada.
           </p>
         </div>
@@ -421,8 +421,8 @@
             <p class="eyebrow">Entradas</p>
             <h2 class="section-title">Elegí <em>cómo querés vivirla</em></h2>
             <p class="section-sub">
-              Primera tanda con cupos limitados. Asegurá tu lugar antes de que
-              se agote.
+              Primera tanda con cupos limitados: 100 entradas generales y 50
+              entradas VIP. Asegurá tu lugar antes de que se agote.
             </p>
           </header>
 
@@ -431,10 +431,35 @@
             <article class="ticket ticket-general" id="entradas">
               <header class="ticket-head">
                 <p class="ticket-kicker">Entrada General</p>
-                <p class="ticket-stock">Dos formas de vivir la experiencia general</p>
+                <p class="ticket-stock">100 entradas · con o sin comida</p>
               </header>
 
               <div class="ticket-options">
+                <div class="ticket-option ticket-option-secondary">
+                  <div class="ticket-option-head">
+                    <h3>Entrada General sin comida</h3>
+                    <div class="ticket-price">
+                      <span class="price-currency">$</span>
+                      <span class="price-amount">60.000</span>
+                    </div>
+                  </div>
+                  <ul class="ticket-features">
+                    <li>Ingreso al evento</li>
+                    <li>Degustación de 150 etiquetas</li>
+                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                    <li>Copón de regalo</li>
+                    <li>Experiencia general en Finca Los Teros</li>
+                    <li><strong>No incluye gastronomía</strong></li>
+                  </ul>
+                  <a
+                    href="#"
+                    class="btn btn-outline btn-block"
+                    data-wa="general-sin-comida"
+                    data-reserve="general-sin-comida"
+                    >Reservar General sin comida</a
+                  >
+                </div>
+
                 <div class="ticket-option">
                   <div class="ticket-option-head">
                     <h3>Entrada General completa</h3>
@@ -463,31 +488,6 @@
                     >Reservar General completa</a
                   >
                 </div>
-
-                <div class="ticket-option ticket-option-secondary">
-                  <div class="ticket-option-head">
-                    <h3>Entrada General sin comida</h3>
-                    <div class="ticket-price">
-                      <span class="price-currency">$</span>
-                      <span class="price-amount">60.000</span>
-                    </div>
-                  </div>
-                  <ul class="ticket-features">
-                    <li>Ingreso al evento</li>
-                    <li>Degustación de 150 etiquetas</li>
-                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
-                    <li>Copón de regalo</li>
-                    <li>Experiencia general en Finca Los Teros</li>
-                    <li><strong>No incluye gastronomía</strong></li>
-                  </ul>
-                  <a
-                    href="#"
-                    class="btn btn-outline btn-block"
-                    data-wa="general-sin-comida"
-                    data-reserve="general-sin-comida"
-                    >Reservar General sin comida</a
-                  >
-                </div>
               </div>
             </article>
 
@@ -496,10 +496,36 @@
               <span class="ticket-badge">Más solicitada</span>
               <header class="ticket-head">
                 <p class="ticket-kicker">Entrada VIP</p>
-                <p class="ticket-stock">Dos opciones con beneficios premium</p>
+                <p class="ticket-stock">50 entradas · con o sin comida</p>
               </header>
 
               <div class="ticket-options">
+                <div class="ticket-option ticket-option-secondary">
+                  <div class="ticket-option-head">
+                    <h3>Entrada VIP sin comida</h3>
+                    <div class="ticket-price">
+                      <span class="price-currency">$</span>
+                      <span class="price-amount">110.000</span>
+                    </div>
+                  </div>
+                  <ul class="ticket-features">
+                    <li>Ingreso al evento</li>
+                    <li>Degustación de 150 etiquetas</li>
+                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                    <li><strong>Sector living VIP</strong></li>
+                    <li><strong>Degustación de etiquetas premium</strong></li>
+                    <li>Copón de regalo</li>
+                    <li><strong>No incluye gastronomía</strong></li>
+                  </ul>
+                  <a
+                    href="#"
+                    class="btn btn-primary btn-block"
+                    data-wa="vip-sin-comida"
+                    data-reserve="vip-sin-comida"
+                    >Reservar VIP sin comida</a
+                  >
+                </div>
+
                 <div class="ticket-option">
                   <div class="ticket-option-head">
                     <h3>Entrada VIP completa</h3>
@@ -527,32 +553,6 @@
                     data-wa="vip-completa"
                     data-reserve="vip-completa"
                     >Reservar VIP completa</a
-                  >
-                </div>
-
-                <div class="ticket-option ticket-option-secondary">
-                  <div class="ticket-option-head">
-                    <h3>Entrada VIP sin comida</h3>
-                    <div class="ticket-price">
-                      <span class="price-currency">$</span>
-                      <span class="price-amount">110.000</span>
-                    </div>
-                  </div>
-                  <ul class="ticket-features">
-                    <li>Ingreso al evento</li>
-                    <li>Degustación de 150 etiquetas</li>
-                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
-                    <li><strong>Sector living VIP</strong></li>
-                    <li><strong>Degustación de etiquetas premium</strong></li>
-                    <li>Copón de regalo</li>
-                    <li><strong>No incluye gastronomía</strong></li>
-                  </ul>
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-block"
-                    data-wa="vip-sin-comida"
-                    data-reserve="vip-sin-comida"
-                    >Reservar VIP sin comida</a
                   >
                 </div>
               </div>
@@ -978,7 +978,7 @@
       <!-- ============================================
          GALERÍA
          Reemplazá cada <span class="gallery-placeholder">... por
-         <img src="assets/galeria/nombre.jpg" alt="..." loading="lazy">
+         <img src="./assets/galeria/nombre.jpg" alt="..." loading="lazy">
          y listo. Podés sumar o quitar <li class="gallery-item">…</li>
          según cuántas fotos quieras mostrar.
          ============================================ -->
@@ -1191,9 +1191,9 @@
               <summary>¿Hay cupos limitados?</summary>
               <div class="faq-content">
                 <p>
-                  Sí. Los cupos de esta tanda son limitados. Recomendamos
-                  reservar con anticipación para asegurar la opción de entrada
-                  que preferís.
+                  Sí. La primera tanda tiene 100 entradas generales y 50
+                  entradas VIP. Recomendamos reservar con anticipación para
+                  asegurar la opción de entrada que preferís.
                 </p>
               </div>
             </details>
@@ -1221,7 +1221,7 @@
               más apasionados.
             </p>
             <p class="cta-text cta-text-small">
-              Cupos limitados en primera tanda · General y VIP · Con o sin comida
+              Cupos limitados en primera tanda · 100 Generales · 50 VIP
             </p>
 
             <div class="cta-buttons">
@@ -1478,6 +1478,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

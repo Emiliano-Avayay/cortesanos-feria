@@ -123,20 +123,20 @@ Cambiá los valores y se actualiza todo el sitio automáticamente.
 <li class="bodega-card"><span>Bottega</span></li>
 
 <!-- Después -->
-<li class="bodega-card"><img src="assets/bodegas/bottega.png" alt="Bottega"></li>
+<li class="bodega-card"><img src="./assets/bodegas/bottega.png" alt="Bottega"></li>
 ```
 
 El CSS ya está preparado para mostrar los logos elegantes (en escala de grises que se colorea al pasar el mouse).
 
 ### 7. Reemplazar el fondo del hero por una foto real
 1. Conseguí una foto horizontal de alta calidad (mínimo 1920px de ancho) — un viñedo, la finca, o copas al sol.
-2. Guardala como `assets/hero-evento.jpg`.
+2. Guardala como `./assets/hero-evento.jpg`.
 3. En `styles.css`, buscá `.hero-bg-image` y reemplazá el bloque por:
 
 ```css
 .hero-bg-image {
   position: absolute; inset: 0;
-  background: url('assets/hero-evento.jpg') center/cover no-repeat;
+  background: url('./assets/hero-evento.jpg') center/cover no-repeat;
 }
 .hero-bg-overlay {
   background: linear-gradient(180deg, rgba(250,246,238,0.4), rgba(250,246,238,0.85));
@@ -152,7 +152,7 @@ Cuando tengas la ubicación exacta de Finca Los Teros:
 
 ### 9. Cambiar la imagen para compartir en WhatsApp / Instagram (Open Graph)
 1. Diseñá una imagen de **1200×630 píxeles** (formato horizontal estándar para previews de redes).
-2. Guardala como `assets/og-image.jpg`.
+2. Guardala como `./assets/og-image.jpg`.
 3. Ya está enlazada en el `<head>` del HTML. Solo subila al servidor.
 
 ---

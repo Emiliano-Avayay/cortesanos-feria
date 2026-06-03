@@ -430,7 +430,7 @@ h1, h2, h3, h4, h5, h6 {
      center/cover hace que llene la sección y se recorte parejo en cualquier pantalla.
      Usamos JPG (mucho más liviano que PNG → carga confiable en Safari mobile). */
   background:
-    url('assets/lugar/foto-lugar-6.jpg') center center / cover no-repeat;
+    url('./assets/lugar/foto-lugar-6.jpg') center center / cover no-repeat;
   background-color: #1a0e08; /* color base mientras carga */
   /* Pequeño zoom-in lento que da sensación cinematográfica */
   animation: heroSlowZoom 24s ease-out infinite alternate;
@@ -2272,11 +2272,11 @@ body.modal-open { overflow: hidden; }
     min-height: auto;
     padding: 88px 0 60px;
   }
-  /* Foto distinta para mobile (poné tu archivo en assets/lugar/foto-lugar-mobile.jpg).
+  /* Foto distinta para mobile (poné tu archivo en ./assets/lugar/foto-lugar-mobile.jpg).
      Si querés probar otra ruta o formato, cambiá la URL acá abajo.
      Usamos JPG (mucho más liviano que PNG → Safari iOS lo carga sin problema). */
   .hero-bg-image {
-    background-image: url('assets/lugar/foto-lugar-mobile.jpg');
+    background-image: url('./assets/lugar/foto-lugar-mobile.jpg');
     /* En portrait conviene mostrar más arriba para no perder el cielo */
     background-position: center;
   }
