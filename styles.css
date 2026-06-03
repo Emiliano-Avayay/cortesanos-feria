@@ -97,7 +97,7 @@ body {
     radial-gradient(ellipse 60% 40% at 0% 0%, rgba(199, 154, 74, 0.07), transparent 60%),
     radial-gradient(ellipse 50% 40% at 100% 100%, rgba(122, 31, 51, 0.05), transparent 60%),
     var(--cream);
-  background-attachment: fixed;
+  /* background-attachment: fixed; — quitado: roto en iOS Safari y causa jank en mobile */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -418,13 +418,19 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  /* Color oscuro de respaldo por si la foto tarda en cargar o falla:
+     así el logo blanco "Cultura Cortesana" siempre se ve. */
+  background-color: #1a0e08;
+}
 .hero-bg-image {
   position: absolute; inset: 0;
   /* Foto del lugar como fondo. Si querés cambiarla, reemplazá la URL.
-     center/cover hace que llene la sección y se recorte parejo en cualquier pantalla. */
+     center/cover hace que llene la sección y se recorte parejo en cualquier pantalla.
+     Usamos JPG (mucho más liviano que PNG → carga confiable en Safari mobile). */
   background:
-    url('assets/lugar/foto-lugar-6.png') center center / cover no-repeat;
+    url('assets/lugar/foto-lugar-6.jpg') center center / cover no-repeat;
   background-color: #1a0e08; /* color base mientras carga */
   /* Pequeño zoom-in lento que da sensación cinematográfica */
   animation: heroSlowZoom 24s ease-out infinite alternate;
@@ -2214,10 +2220,11 @@ body.modal-open { overflow: hidden; }
     min-height: auto;
     padding: 88px 0 60px;
   }
-  /* Foto distinta para mobile (poné tu archivo en assets/lugar/foto-lugar-mobile.jpeg).
-     Si querés probar otra ruta o formato, cambiá la URL acá abajo. */
+  /* Foto distinta para mobile (poné tu archivo en assets/lugar/foto-lugar-mobile.jpg).
+     Si querés probar otra ruta o formato, cambiá la URL acá abajo.
+     Usamos JPG (mucho más liviano que PNG → Safari iOS lo carga sin problema). */
   .hero-bg-image {
-    background-image: url('assets/lugar/foto-lugar-mobile.png');
+    background-image: url('assets/lugar/foto-lugar-mobile.jpg');
     /* En portrait conviene mostrar más arriba para no perder el cielo */
     background-position: center;
   }
