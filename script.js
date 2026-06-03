@@ -15,14 +15,23 @@ const ALIAS = 'loscortesanosmacro';
 
 /* URL del Web App de Google Apps Script.
    Pegá acá la URL que termina en /exec después de publicar el Apps Script como Web App. */
-const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwrdbf6MXWKzR5c5u08yYcbb7FHCCKOjdo-67OVNG8GUtTkH0-qGb57celpxi2GDGdB/exec';
+const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzmIEu-wL5JD_bZ0RZdIrnfHOjhsG8ooHcQVZzODwvOL-F8s5pNI5-PY5F_x4p5L5OM/exec';
 
 /* Mensajes predeterminados de WhatsApp.
    Se arman distintos según desde dónde haga clic el cliente. */
 const WHATSAPP_MESSAGES = {
   default: `¡Hola! Quiero reservar mi entrada para Cultura Cortesana — Feria de Vinos del sábado 13 de junio de 2026. ¿Me confirman disponibilidad y los datos de pago? (Alias: ${ALIAS})`,
-  general: `¡Hola! Me interesa la Entrada GENERAL para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`,
-  vip:     `¡Hola! Me interesa la Entrada VIP para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`
+  'general-completa': `¡Hola! Me interesa la Entrada General completa para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`,
+  'vip-completa': `¡Hola! Me interesa la Entrada VIP completa para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`,
+  'general-sin-comida': `¡Hola! Me interesa la Entrada General sin comida para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`,
+  'vip-sin-comida': `¡Hola! Me interesa la Entrada VIP sin comida para Cultura Cortesana del sábado 13 de junio. ¿Me confirman cupo y los datos para transferir al alias "${ALIAS}"?`
+};
+
+const TICKET_TYPES = {
+  'general-completa': 'General completa',
+  'vip-completa': 'VIP completa',
+  'general-sin-comida': 'General sin comida',
+  'vip-sin-comida': 'VIP sin comida'
 };
 
 /* ============================================================
@@ -49,7 +58,8 @@ const WHATSAPP_MESSAGES = {
   }
 
   function prettyTicketType(type) {
-    return String(type).toLowerCase() === 'vip' ? 'VIP' : 'GENERAL';
+    const key = String(type || '').toLowerCase();
+    return TICKET_TYPES[key] || String(type || '').trim() || 'Entrada';
   }
 
   function buildReservationMessage(data) {
@@ -74,7 +84,7 @@ const WHATSAPP_MESSAGES = {
   }
 
   /* Cada link/botón con [data-wa] se transforma automáticamente en un link de WhatsApp.
-     El valor de data-wa elige el mensaje: "default" | "general" | "vip". */
+     El valor de data-wa elige el mensaje: "default" o una de las cuatro variantes de entrada. */
   $$('[data-wa]').forEach(el => {
     const key = el.getAttribute('data-wa') || 'default';
     const message = WHATSAPP_MESSAGES[key] || WHATSAPP_MESSAGES.default;

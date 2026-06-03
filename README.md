@@ -64,7 +64,7 @@ La web ya tiene el formulario que guarda:
 - Apellido
 - DNI
 - Nro. de teléfono
-- Entrada: GENERAL o VIP
+- Entrada: General completa, VIP completa, General sin comida o VIP sin comida
 - Forma de pago: Efectivo o Transferencia
 - Pago: queda como `Pendiente` para que lo cambies manualmente cuando confirme
 

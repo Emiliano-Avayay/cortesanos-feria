@@ -49,7 +49,7 @@ function getOrCreateSheet_() {
 }
 
 function ensureHeaders_(sheet) {
-  const headers = ['Fecha y Hora', 'Nombre', 'Apellido', 'DNI', 'Nro de Telefono', 'General o VIP', 'Forma de Pago', 'Estado Pago'];
+  const headers = ['Fecha y Hora', 'Nombre', 'Apellido', 'DNI', 'Nro de Telefono', 'Tipo de Entrada', 'Forma de Pago', 'Estado Pago'];
   sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
   sheet.setFrozenRows(1);
 }

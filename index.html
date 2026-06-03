@@ -14,7 +14,7 @@
     </title>
     <meta
       name="description"
-      content="Cultura Cortesana celebra los 8 años de Los Cortesanos en Rafaela con una feria de vinos al aire libre, más de 150 etiquetas, gastronomía incluida, música y bodegas reconocidas en Finca Los Teros, Bella Italia."
+      content="Cultura Cortesana celebra los 8 años de Los Cortesanos en Rafaela con una feria de vinos al aire libre, más de 150 etiquetas, opciones con gastronomía, música y bodegas reconocidas en Finca Los Teros, Bella Italia."
     />
     <meta
       name="keywords"
@@ -35,7 +35,7 @@
     />
     <meta
       property="og:description"
-      content="Sábado 13 de junio de 2026 — Finca Los Teros, Bella Italia. Más de 150 etiquetas, gastronomía incluida, música y aire libre."
+      content="Sábado 13 de junio de 2026 — Finca Los Teros, Bella Italia. Más de 150 etiquetas, opciones con gastronomía, música y aire libre."
     />
     <meta property="og:image" content="assets/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -73,7 +73,7 @@
         "@context": "https://schema.org",
         "@type": "Event",
         "name": "Cultura Cortesana — Feria de Vinos",
-        "description": "Feria de vinos al aire libre celebrando los 8 años de Los Cortesanos en Rafaela. Más de 150 etiquetas, gastronomía incluida, música y aire libre.",
+        "description": "Feria de vinos al aire libre celebrando los 8 años de Los Cortesanos en Rafaela. Más de 150 etiquetas, opciones con gastronomía, música y aire libre.",
         "startDate": "2026-06-13T12:00:00-03:00",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -94,15 +94,29 @@
         "offers": [
           {
             "@type": "Offer",
-            "name": "Entrada General",
+            "name": "Entrada General completa",
             "price": "85000",
             "priceCurrency": "ARS",
             "availability": "https://schema.org/LimitedAvailability"
           },
           {
             "@type": "Offer",
-            "name": "Entrada VIP",
+            "name": "Entrada VIP completa",
             "price": "135000",
+            "priceCurrency": "ARS",
+            "availability": "https://schema.org/LimitedAvailability"
+          },
+          {
+            "@type": "Offer",
+            "name": "Entrada General sin comida",
+            "price": "60000",
+            "priceCurrency": "ARS",
+            "availability": "https://schema.org/LimitedAvailability"
+          },
+          {
+            "@type": "Offer",
+            "name": "Entrada VIP sin comida",
+            "price": "110000",
             "priceCurrency": "ARS",
             "availability": "https://schema.org/LimitedAvailability"
           }
@@ -417,32 +431,64 @@
             <article class="ticket ticket-general" id="entradas">
               <header class="ticket-head">
                 <p class="ticket-kicker">Entrada General</p>
-                <p class="ticket-stock">Primera tanda · 50 entradas</p>
+                <p class="ticket-stock">Dos formas de vivir la experiencia general</p>
               </header>
 
-              <div class="ticket-price">
-                <span class="price-currency">$</span>
-                <span class="price-amount">85.000</span>
+              <div class="ticket-options">
+                <div class="ticket-option">
+                  <div class="ticket-option-head">
+                    <h3>Entrada General completa</h3>
+                    <div class="ticket-price">
+                      <span class="price-currency">$</span>
+                      <span class="price-amount">85.000</span>
+                    </div>
+                  </div>
+                  <ul class="ticket-features">
+                    <li>Ingreso al evento</li>
+                    <li>Degustación de 150 etiquetas</li>
+                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                    <li>Copón de regalo</li>
+                    <li>Gastronomía incluida</li>
+                    <li>
+                      <strong>Voucher de $25.000</strong> para comprar los vinos
+                      que más te gustaron
+                    </li>
+                    <li>Experiencia general en Finca Los Teros</li>
+                  </ul>
+                  <a
+                    href="#"
+                    class="btn btn-outline btn-block"
+                    data-wa="general-completa"
+                    data-reserve="general-completa"
+                    >Reservar General completa</a
+                  >
+                </div>
+
+                <div class="ticket-option ticket-option-secondary">
+                  <div class="ticket-option-head">
+                    <h3>Entrada General sin comida</h3>
+                    <div class="ticket-price">
+                      <span class="price-currency">$</span>
+                      <span class="price-amount">60.000</span>
+                    </div>
+                  </div>
+                  <ul class="ticket-features">
+                    <li>Ingreso al evento</li>
+                    <li>Degustación de 150 etiquetas</li>
+                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                    <li>Copón de regalo</li>
+                    <li>Experiencia general en Finca Los Teros</li>
+                    <li><strong>No incluye gastronomía</strong></li>
+                  </ul>
+                  <a
+                    href="#"
+                    class="btn btn-outline btn-block"
+                    data-wa="general-sin-comida"
+                    data-reserve="general-sin-comida"
+                    >Reservar General sin comida</a
+                  >
+                </div>
               </div>
-
-              <ul class="ticket-features">
-                <li>Ingreso al evento</li>
-                <li>Degustación de 150 etiquetas distintas</li>
-                <li>Copón de regalo</li>
-                <li>Gastronomía incluida</li>
-                <li>
-                  <strong>Voucher de $25.000</strong> para compras en Los
-                  Cortesanos
-                </li>
-              </ul>
-
-              <a
-                href="#"
-                class="btn btn-outline btn-block"
-                data-wa="general"
-                data-reserve="general"
-                >Reservar General</a
-              >
             </article>
 
             <!-- ENTRADA VIP -->
@@ -450,34 +496,66 @@
               <span class="ticket-badge">Más solicitada</span>
               <header class="ticket-head">
                 <p class="ticket-kicker">Entrada VIP</p>
-                <p class="ticket-stock">Primera tanda · 20 entradas</p>
+                <p class="ticket-stock">Dos opciones con beneficios premium</p>
               </header>
 
-              <div class="ticket-price">
-                <span class="price-currency">$</span>
-                <span class="price-amount">135.000</span>
+              <div class="ticket-options">
+                <div class="ticket-option">
+                  <div class="ticket-option-head">
+                    <h3>Entrada VIP completa</h3>
+                    <div class="ticket-price">
+                      <span class="price-currency">$</span>
+                      <span class="price-amount">135.000</span>
+                    </div>
+                  </div>
+                  <ul class="ticket-features">
+                    <li>Ingreso al evento</li>
+                    <li>Degustación de 150 etiquetas</li>
+                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                    <li><strong>Sector living VIP</strong></li>
+                    <li><strong>Degustación de etiquetas premium</strong></li>
+                    <li>Copón de regalo</li>
+                    <li>Gastronomía incluida</li>
+                    <li>
+                      <strong>Voucher de $65.000</strong> para comprar los vinos
+                      que más te gustaron
+                    </li>
+                  </ul>
+                  <a
+                    href="#"
+                    class="btn btn-primary btn-block"
+                    data-wa="vip-completa"
+                    data-reserve="vip-completa"
+                    >Reservar VIP completa</a
+                  >
+                </div>
+
+                <div class="ticket-option ticket-option-secondary">
+                  <div class="ticket-option-head">
+                    <h3>Entrada VIP sin comida</h3>
+                    <div class="ticket-price">
+                      <span class="price-currency">$</span>
+                      <span class="price-amount">110.000</span>
+                    </div>
+                  </div>
+                  <ul class="ticket-features">
+                    <li>Ingreso al evento</li>
+                    <li>Degustación de 150 etiquetas</li>
+                    <li>Vinos tintos, blancos, rosados, espumantes y más</li>
+                    <li><strong>Sector living VIP</strong></li>
+                    <li><strong>Degustación de etiquetas premium</strong></li>
+                    <li>Copón de regalo</li>
+                    <li><strong>No incluye gastronomía</strong></li>
+                  </ul>
+                  <a
+                    href="#"
+                    class="btn btn-primary btn-block"
+                    data-wa="vip-sin-comida"
+                    data-reserve="vip-sin-comida"
+                    >Reservar VIP sin comida</a
+                  >
+                </div>
               </div>
-
-              <ul class="ticket-features">
-                <li>Ingreso al evento</li>
-                <li>Degustación de 150 etiquetas distintas</li>
-                <li><strong>Sector living VIP</strong></li>
-                <li><strong>Degustación de etiquetas premium</strong></li>
-                <li>Copón de regalo</li>
-                <li>Gastronomía incluida</li>
-                <li>
-                  <strong>Voucher de $65.000</strong> para compras en Los
-                  Cortesanos
-                </li>
-              </ul>
-
-              <a
-                href="#"
-                class="btn btn-primary btn-block"
-                data-wa="vip"
-                data-reserve="vip"
-                >Reservar VIP</a
-              >
             </article>
           </div>
 
@@ -545,19 +623,27 @@
             <div
               class="compare-table"
               role="table"
-              aria-label="Comparación entre Entrada General y Entrada VIP"
+              aria-label="Comparación entre las cuatro opciones de entrada"
             >
               <div class="compare-row compare-row-head" role="row">
                 <div role="columnheader">Beneficio</div>
-                <div role="columnheader">General</div>
-                <div role="columnheader">VIP</div>
+                <div role="columnheader">General completa</div>
+                <div role="columnheader">VIP completa</div>
+                <div role="columnheader">General sin comida</div>
+                <div role="columnheader">VIP sin comida</div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Ingreso al evento</div>
-                <div role="cell" data-label="General">
+                <div role="cell" data-label="General completa">
                   <span class="check">✓</span>
                 </div>
-                <div role="cell" data-label="VIP">
+                <div role="cell" data-label="VIP completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
                   <span class="check">✓</span>
                 </div>
               </div>
@@ -565,10 +651,16 @@
                 <div role="cell" data-label="Beneficio">
                   Degustación 150 etiquetas
                 </div>
-                <div role="cell" data-label="General">
+                <div role="cell" data-label="General completa">
                   <span class="check">✓</span>
                 </div>
-                <div role="cell" data-label="VIP">
+                <div role="cell" data-label="VIP completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
                   <span class="check">✓</span>
                 </div>
               </div>
@@ -576,37 +668,61 @@
                 <div role="cell" data-label="Beneficio">
                   Gastronomía incluida
                 </div>
-                <div role="cell" data-label="General">
+                <div role="cell" data-label="General completa">
                   <span class="check">✓</span>
                 </div>
-                <div role="cell" data-label="VIP">
+                <div role="cell" data-label="VIP completa">
                   <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
+                  <span class="dash">—</span>
                 </div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Copón de regalo</div>
-                <div role="cell" data-label="General">
+                <div role="cell" data-label="General completa">
                   <span class="check">✓</span>
                 </div>
-                <div role="cell" data-label="VIP">
+                <div role="cell" data-label="VIP completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
                   <span class="check">✓</span>
                 </div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Sector living VIP</div>
-                <div role="cell" data-label="General">
+                <div role="cell" data-label="General completa">
                   <span class="dash">—</span>
                 </div>
-                <div role="cell" data-label="VIP">
+                <div role="cell" data-label="VIP completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
                   <span class="check">✓</span>
                 </div>
               </div>
               <div class="compare-row" role="row">
                 <div role="cell" data-label="Beneficio">Etiquetas premium</div>
-                <div role="cell" data-label="General">
+                <div role="cell" data-label="General completa">
                   <span class="dash">—</span>
                 </div>
-                <div role="cell" data-label="VIP">
+                <div role="cell" data-label="VIP completa">
+                  <span class="check">✓</span>
+                </div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
                   <span class="check">✓</span>
                 </div>
               </div>
@@ -614,8 +730,21 @@
                 <div role="cell" data-label="Beneficio">
                   Voucher Los Cortesanos
                 </div>
-                <div role="cell" data-label="General">$25.000</div>
-                <div role="cell" data-label="VIP">$65.000</div>
+                <div role="cell" data-label="General completa">$25.000</div>
+                <div role="cell" data-label="VIP completa">$65.000</div>
+                <div role="cell" data-label="General sin comida">
+                  <span class="dash">—</span>
+                </div>
+                <div role="cell" data-label="VIP sin comida">
+                  <span class="dash">—</span>
+                </div>
+              </div>
+              <div class="compare-row" role="row">
+                <div role="cell" data-label="Beneficio">Precio</div>
+                <div role="cell" data-label="General completa">$85.000</div>
+                <div role="cell" data-label="VIP completa">$135.000</div>
+                <div role="cell" data-label="General sin comida">$60.000</div>
+                <div role="cell" data-label="VIP sin comida">$110.000</div>
               </div>
             </div>
           </div>
@@ -634,7 +763,7 @@
             </h2>
             <p class="section-sub">
               Una propuesta gastronómica artesanal pensada para acompañar cada
-              copa, incluida en todas las entradas.
+              copa, incluida en las entradas completas.
             </p>
           </header>
 
@@ -971,7 +1100,7 @@
 
           <div class="faq-list">
             <details class="faq-item">
-              <summary>¿Qué incluye la Entrada General?</summary>
+              <summary>¿Qué incluye la Entrada General completa?</summary>
               <div class="faq-content">
                 <p>
                   Ingreso al evento, degustación de 150 etiquetas distintas,
@@ -982,13 +1111,25 @@
             </details>
 
             <details class="faq-item">
-              <summary>¿Qué incluye la Entrada VIP?</summary>
+              <summary>¿Qué incluye la Entrada VIP completa?</summary>
               <div class="faq-content">
                 <p>
                   Ingreso al evento, degustación de 150 etiquetas, acceso al
                   sector living VIP, degustación de etiquetas premium, copón de
                   regalo, gastronomía incluida y un voucher de $65.000 para
                   compras en Los Cortesanos.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>¿Qué incluyen las entradas sin comida?</summary>
+              <div class="faq-content">
+                <p>
+                  Incluyen ingreso al evento, degustación de 150 etiquetas,
+                  vinos tintos, blancos, rosados, espumantes y más, copón de
+                  regalo y acceso a la experiencia correspondiente. No incluyen
+                  gastronomía ni voucher para compras.
                 </p>
               </div>
             </details>
@@ -1020,10 +1161,11 @@
               <summary>¿La gastronomía está incluida?</summary>
               <div class="faq-content">
                 <p>
-                  Sí, la gastronomía está incluida en todas las entradas. El
-                  menú combina recepción con brusquetas artesanales, empanada
-                  criolla, show de fuegos en vivo con sándwiches de vacío y
-                  bondiola, aderezos caseros y copita postre de degustación.
+                  La gastronomía está incluida únicamente en las entradas
+                  completas. El menú combina recepción con brusquetas
+                  artesanales, empanada criolla, show de fuegos en vivo con
+                  sándwiches de vacío y bondiola, aderezos caseros y copita
+                  postre de degustación.
                 </p>
               </div>
             </details>
@@ -1049,8 +1191,9 @@
               <summary>¿Hay cupos limitados?</summary>
               <div class="faq-content">
                 <p>
-                  Sí. La primera tanda está limitada a 50 entradas Generales y
-                  20 entradas VIP. Recomendamos reservar con anticipación.
+                  Sí. Los cupos de esta tanda son limitados. Recomendamos
+                  reservar con anticipación para asegurar la opción de entrada
+                  que preferís.
                 </p>
               </div>
             </details>
@@ -1078,7 +1221,7 @@
               más apasionados.
             </p>
             <p class="cta-text cta-text-small">
-              Cupos limitados en primera tanda · 50 Generales · 20 VIP
+              Cupos limitados en primera tanda · General y VIP · Con o sin comida
             </p>
 
             <div class="cta-buttons">
